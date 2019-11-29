@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ObjC,类簇,IOS,Objective-C," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、引语首先新建基于 Single View App的工程，在ViewController.m文件中添加如下代码(1-1)： 1- (void)viewDidLoad &amp;#123;2    [super viewDidLoad];3    NSString * string1 &#x3D; [[NSString alloc] init];4    NSLog(@&quot;string1 length:%lu&quot;, s">
+<meta name="keywords" content="ObjC,类簇,IOS,Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[OC]关于类簇">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;b7bda735.html">
+<meta property="og:site_name" content="MW技术栈">
+<meta property="og:description" content="一、引语首先新建基于 Single View App的工程，在ViewController.m文件中添加如下代码(1-1)： 1- (void)viewDidLoad &amp;#123;2    [super viewDidLoad];3    NSString * string1 &#x3D; [[NSString alloc] init];4    NSLog(@&quot;string1 length:%lu&quot;, s">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-29T11:07:03.768Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/content/b7bda735.html"/>
+
+
+
+
+
+  <title>[OC]关于类簇 | MW技术栈</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MW技术栈</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">精益技术，完善自我</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/b7bda735.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陌问.MW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MW技术栈">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[OC]关于类簇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T07:00:08+08:00">
+                2019-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">移动开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  >
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一、引语"><a href="#一、引语" class="headerlink" title="一、引语"></a>一、引语</h4><p>首先新建基于 Single View App的工程，在<code>ViewController.m</code>文件中添加如下代码(1-1)：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [[<span class="built_in">NSString</span> alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 length:%lu"</span>, string1.length);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>这是一段普通的不能在普通的创建不可变字符串的过程，<code>length</code>为<code>NSString</code>的获取长度的属性，我们输出了字符串的长度，结果为0。然后我们创建一个<code>Person</code>类，添加属性变量<code>age</code>，代码(1-2)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSUInteger</span> age;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">@end</span></span></pre></td></tr></table></figure>
+
+<p>然后在<code>ViewControlelr.m</code>中添加代码(1-3)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [[<span class="built_in">NSString</span> alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 length:%lu"</span>, string1.length);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    Person * person = [[Person alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>, person.age);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>通过运行我们发现代码完全没有问题，那么我们对上面的代码做如下修改，代码(1-4)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    Person * person = [Person alloc];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>, person.age);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [<span class="built_in">NSString</span> alloc];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 length:%lu"</span>, string1.length);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>运行我们发现有如下结果：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">01</span><span class="variable">.183451</span>+<span class="number">0800</span> allocmessage[<span class="number">5302</span>:<span class="number">2528864</span>] <span class="number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">01</span><span class="variable">.183520</span>+<span class="number">0800</span> allocmessage[<span class="number">5302</span>:<span class="number">2528864</span>] Did you forget to nest alloc <span class="keyword">and</span> init?</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">01</span><span class="variable">.185386</span>+<span class="number">0800</span> allocmessage[<span class="number">5302</span>:<span class="number">2528864</span>] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -length only defined <span class="keyword">for</span> abstract <span class="keyword">class</span>.  Define -[NSPlaceholderString length]!'</span></pre></td></tr></table></figure>
+
+<p>当输出<code>person.age</code>时没有任何问题，正确输出结果，而执行到<code>string1.length</code>时报错了。错误提示告诉我们<code>NSString</code>要嵌套使用<code>alloc</code>和<code>init</code>方法，并且<code>length</code>属性仅仅是定义在一个抽象类中。那么我们来一看什么是抽象类，摘自百度百科的概念如下：</p>
+<blockquote>
+<p>抽象类是不完整的，它只能用作基类。在面向对象方法中，抽象类主要用来进行类型隐藏和充当全局变量的角色。</p>
+<p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类</p>
+<p>抽象类不能实例化</p>
+</blockquote>
+<p>通过以上说明我们可以得出，其实<code>NSString</code>是一个抽象类，类中只是进行了简单的行为声明，并没有实现。而在<code>Objective-C</code>中并没有明确的抽象类的定义，所以这样的实现方式我们称谓”类簇“。</p>
+<h4 id="二、类簇的概念"><a href="#二、类簇的概念" class="headerlink" title="二、类簇的概念"></a>二、类簇的概念</h4><p>类簇(class cluster)，是一种模式，可以隐藏”抽象基类(abstract  base class)“背后的实现细节，用户无需创建子类的实例，只需调用基类方法来创建即可。</p>
+<p>下面我们来验证一下，代码(3-1)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * string1 = [<span class="built_in">NSString</span> alloc];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * string2 = [string1 init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * string3 = <span class="string">@"string"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * string4 = [[<span class="built_in">NSString</span> alloc] initWithString:string2];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * string5 = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>, <span class="string">@"string"</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"string1:%s"</span>, object_getClassName(string1));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"string2:%s"</span>, object_getClassName(string2));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"string3:%s"</span>, object_getClassName(string3));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"string4:%s"</span>, object_getClassName(string4));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"string5:%s"</span>, object_getClassName(string5));</span></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">22</span>:<span class="number">54</span>:<span class="number">42</span><span class="variable">.423153</span>+<span class="number">0800</span> allocmessage[<span class="number">81291</span>:<span class="number">9763415</span>] string1:NSPlaceholderString</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">22</span>:<span class="number">54</span>:<span class="number">42</span><span class="variable">.423323</span>+<span class="number">0800</span> allocmessage[<span class="number">81291</span>:<span class="number">9763415</span>] string2:<span class="number">__</span>NSCFConstantString</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">22</span>:<span class="number">54</span>:<span class="number">42</span><span class="variable">.423428</span>+<span class="number">0800</span> allocmessage[<span class="number">81291</span>:<span class="number">9763415</span>] string3:<span class="number">__</span>NSCFConstantString</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">22</span>:<span class="number">54</span>:<span class="number">42</span><span class="variable">.423523</span>+<span class="number">0800</span> allocmessage[<span class="number">81291</span>:<span class="number">9763415</span>] string4:<span class="number">__</span>NSCFConstantString</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">22</span>:<span class="number">54</span>:<span class="number">42</span><span class="variable">.423616</span>+<span class="number">0800</span> allocmessage[<span class="number">81291</span>:<span class="number">9763415</span>] string5:NSTaggedPointerString</span></pre></td></tr></table></figure>
+
+<p>PS:通过上面的结果可以看出，<code>string3</code>和<code>string4</code>本质上是一样的，所以在创建字符串时，如果不是通过一个字符串来创建另一个字符串的情况用<code>string3</code>的方式创建即可。</p>
+<p>通过结果可以看出我们创建的字符串对象本质上并不是一个<code>NSString</code>类型，而是其子类类型，我们通过以下方法可以验证，代码(3-2)：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"superclass:%@"</span>, [<span class="built_in">NSClassFromString</span>(<span class="string">@"NSTaggedPointerString"</span>) superclass]);</span></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">22</span>:<span class="number">23</span>:<span class="number">02</span><span class="variable">.662405</span>+<span class="number">0800</span> allocmessage[<span class="number">81090</span>:<span class="number">9732886</span>] superclass:NSString</span></pre></td></tr></table></figure>
+
+<p>所以当我们使用<code>isMemberOfClass</code>来判断字符串是否是当前类时，得到的结果是否定的，代码(3-3)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>([string3 isMemberOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]]) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">      <span class="built_in">NSLog</span>(<span class="string">@"是NSString当前类"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  &#125;<span class="keyword">else</span> <span class="built_in">NSLog</span>(<span class="string">@"否"</span>);</span></pre></td></tr></table></figure>
+
+<p>结构为：否。</p>
+<p>当然我们可以通过<code>isKindOfClass</code>来判断，结果是正确是正确的。</p>
+<h4 id="三、地址验证"><a href="#三、地址验证" class="headerlink" title="三、地址验证"></a>三、地址验证</h4><p>首先重写<code>Person</code>类的<code>init</code>初始化方法，代码(4-1)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">instancetype</span>)init &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">self</span>.age = <span class="number">10</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>然后在<code>ViewController</code>的<code>viewDidLoad</code>方法中添加代码(4-2)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    Person * person1 = [Person alloc];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    Person * person2 = [person1 init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"person1 address:%p"</span>, person1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"person2 address:%p"</span>, person2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [<span class="built_in">NSString</span> alloc];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string2 = [string1 init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string3 = [string1 init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string4 = [string2 init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string5 = [string1 initWithFormat:<span class="string">@"string1"</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string6 = [string1 initWithString:<span class="string">@"string2"</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 address:%p"</span>, string1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string2 address:%p"</span>, string2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string3 address:%p"</span>, string3);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string4 address:%p"</span>, string4);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string5 address:%p"</span>, string5);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string6 address:%p"</span>, string6);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>输出结果如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.355410</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] person1 address:<span class="number">0</span>x600001fe8340</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.355542</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] person2 address:<span class="number">0</span>x600001fe8340</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.355643</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] string1 address:<span class="number">0</span>x1103f16f8</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.355714</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] string2 address:<span class="number">0</span>x1103fb878</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.355779</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] string3 address:<span class="number">0</span>x1103fb878</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.355851</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] string4 address:<span class="number">0</span>x1103fb878</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.355940</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] string5 address:<span class="number">0</span>xb716bea187e38d28</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">11</span>-<span class="number">27</span> <span class="number">23</span>:<span class="number">14</span>:<span class="number">34</span><span class="variable">.356021</span>+<span class="number">0800</span> allocmessage[<span class="number">81487</span>:<span class="number">9784814</span>] string6 address:<span class="number">0</span>x10fdce0e8</span></pre></td></tr></table></figure>
+
+<p>通过以上代码可以看出，<code>Person</code>类创建的对象，在<code>alloc</code>分配内存空间与初始化后的地址是一致的，也就是说<code>init</code>初始化方法只是完成了我们覆盖方法的赋值初始化操作。而<code>NSString</code>创建的对象在<code>alloc</code>分配内存空间后，初始化<code>init</code>方法又一次完成了分配空间的操作，重新分配了内存地址。</p>
+<p>而通过基本的<code>init</code>初始化方法分配的内存地址是一致的，无论多次调用也不会改变，即指向了同一块内存区域。而<code>initWithFormat</code>，<code>initWithString</code>等带参数的初始化方法则重新分配了不同的内存空间。</p>
+<p>PS：通过以上代码可以发现，类簇<code>alloc</code>分配内存空间后，<code>init</code>方法又一次重新分配了内存空间，又一次完成了开辟地址的操作。而非类簇的<code>Person</code>类则无此操作。</p>
+<p>在关于<code>Initializers</code>的官方文档中有这样的叙述：</p>
+<blockquote>
+<p>Although <code>init...</code> methods are required by their method signature to return an object, that object is not necessarily the one that was most recently allocated—the receiver of the <code>init...</code> message. In other words, the object you get back from an initializer might not be the one you thought was being initialized.</p>
+</blockquote>
+<p>PS:大概意思是说：虽然<code>init</code>通过方法返回了一个对象，但这个这个对象并不一定是您最近分配的对象。换句话说，返回的对象并不一定是你认为的初始化方法返回的对象。</p>
+<p>这些我们在类簇的模式中也得到了验证。</p>
+<h4 id="四、类簇的实现"><a href="#四、类簇的实现" class="headerlink" title="四、类簇的实现"></a>四、类簇的实现</h4><p>改造<code>Person</code>类，<code>.h</code>文文件代码(5-1)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, MWPersonType) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    MWPTypeProgrammer,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    MWPTypeDesigner,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    MWPTypeTester,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">instancetype</span>)initWithPersonType:(MWPersonType)type;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)work;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">@end</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span></pre></td></tr></table></figure>
+
+<p><code>.m</code>文件代码(5-2)，如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"MWPersonProgrammer.h"</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"MWPersonDesigner.h"</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"MWPersonTester.h"</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">instancetype</span>)initWithPersonType:(MWPersonType)type &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">switch</span> (type) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">case</span> MWPTypeProgrammer:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="keyword">self</span> = [[MWPersonProgrammer alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">case</span> MWPTypeDesigner:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="keyword">self</span> = [[MWPersonDesigner alloc] init] ;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">case</span> MWPTypeTester:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="keyword">self</span> = [[MWPersonTester alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)work &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//do something</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">@end</span></span></pre></td></tr></table></figure>
+
+<p>分别实现<code>MWPersonProgrammer</code>，<code>MWPersonDesigner</code>，<code>MWPersonTester</code>，并全部继承于<code>Person</code>类，并在<code>.m</code>文件中实现自己的<code>work</code>方法。</p>
+<h4 id="五、引申"><a href="#五、引申" class="headerlink" title="五、引申"></a>五、引申</h4><p>我们熟悉的<code>self = [super init]</code>这种写法，其中有一个原因就是类簇的模式。因为返回类型并不一定是当前类型。上面的例子，当我们初始化<code>Person</code>的对象时，其返回的对象并不是<code>Person</code>对象。<code>self = [super init]</code>写法并不会对<code>self</code>的指向造成任何影响，<code>self</code>总是指向当前类，父类的指针可以指向子类。主要的目的就是确保父类初始化成功，不会返回<code>nil</code>。</p>
+<h4 id="六、结语"><a href="#六、结语" class="headerlink" title="六、结语"></a>六、结语</h4><p>OC中类簇的模式被大量使用，如<code>NSNumber</code>，<code>NSArray</code>，<code>UIButton</code>，<code>NSDictionary</code>等。类簇并非无法继承，而是需要实现特定的方法等。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wchatq.png" alt="陌问.MW wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号，及时获取知识！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ObjC/" rel="tag"># ObjC</a>
+          
+            <a href="/tags/%E7%B1%BB%E7%B0%87/" rel="tag"># 类簇</a>
+          
+            <a href="/tags/IOS/" rel="tag"># IOS</a>
+          
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="陌问.MW" />
+            
+              <p class="site-author-name" itemprop="name">陌问.MW</p>
+              <p class="site-description motion-element" itemprop="description">技术分析，分享，记录，学习</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、引语"><span class="nav-number">1.</span> <span class="nav-text">一、引语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、类簇的概念"><span class="nav-number">2.</span> <span class="nav-text">二、类簇的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、地址验证"><span class="nav-number">3.</span> <span class="nav-text">三、地址验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、类簇的实现"><span class="nav-number">4.</span> <span class="nav-text">四、类簇的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、引申"><span class="nav-number">5.</span> <span class="nav-text">五、引申</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、结语"><span class="nav-number">6.</span> <span class="nav-text">六、结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陌问.MW</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
