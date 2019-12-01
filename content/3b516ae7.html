@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="一、self 基本说明在日常开发中，我们经常使用到self关键字，比如，访问属性，调用实例方法等。那么self到底指的是什么？我们来看一下官方文档的解释和定义：  Returns the receiver.   &#x2F;&#x2F;返回接收器  在看一下NSObject中关于self的一些说法：  Rather than using [[XYZPerson alloc] init] in the class fa">
+<meta name="description" content="一、self 基本说明在日常开发中，我们经常使用到self关键字，比如，访问属性，调用实例方法等。那么self到底指的是什么？我们来看一下官方文档的解释和定义：  Returns the receiver.   &#x2F;&#x2F;返回接收器  在看一下NSObject中关于self的一些说法：">
 <meta name="keywords" content="ObjC,super,self,IOS,Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[OC]self与super调用本质分析">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;3b516ae7.html">
 <meta property="og:site_name" content="MW技术栈">
-<meta property="og:description" content="一、self 基本说明在日常开发中，我们经常使用到self关键字，比如，访问属性，调用实例方法等。那么self到底指的是什么？我们来看一下官方文档的解释和定义：  Returns the receiver.   &#x2F;&#x2F;返回接收器  在看一下NSObject中关于self的一些说法：  Rather than using [[XYZPerson alloc] init] in the class fa">
+<meta property="og:description" content="一、self 基本说明在日常开发中，我们经常使用到self关键字，比如，访问属性，调用实例方法等。那么self到底指的是什么？我们来看一下官方文档的解释和定义：  Returns the receiver.   &#x2F;&#x2F;返回接收器  在看一下NSObject中关于self的一些说法：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-01T15:15:31.945Z">
+<meta property="og:updated_time" content="2019-12-01T15:17:18.208Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -366,6 +366,7 @@
 <p>Returns the receiver.   //返回接收器</p>
 </blockquote>
 <p>在看一下<code>NSObject</code>中关于<code>self</code>的一些说法：</p>
+<a id="more"></a>
 <blockquote>
 <p>Rather than using <code>[[XYZPerson alloc] init]</code> in the class factory method, instead try using <code>[[self alloc] init]</code>.</p>
 <p>Using <code>self</code> in a class factory method means that you’re referring to the class itself.</p>
