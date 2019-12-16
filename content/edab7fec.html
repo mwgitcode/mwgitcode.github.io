@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ios,swift,c,c++" />
+  <meta name="keywords" content="串行,并发,并行,serail,coucurrent,queue," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta name="description" content="技术分析，分享，记录，学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MW技术栈">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta name="description" content="一、概念术语 进程 (process) 系统中正在运行的一个程序的实例(即一个正在运行的可执行文件)，具有一定的独立功能，是线程的容器    线程 (thread) 线程是进程执行的最小单位，一个进程中至少包含一个线程(主线程)，进程中任务都在线程中执行(主线程或子线程)。是代码独立执行的路径。    任务 (task) 需要执行的工作的抽象概念。    并行 (parallel) 并行是一种使用">
+<meta name="keywords" content="串行,并发,并行,serail,coucurrent,queue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于串行、并发、并行等的说明">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;edab7fec.html">
 <meta property="og:site_name" content="MW技术栈">
-<meta property="og:description" content="技术分析，分享，记录，学习">
+<meta property="og:description" content="一、概念术语 进程 (process) 系统中正在运行的一个程序的实例(即一个正在运行的可执行文件)，具有一定的独立功能，是线程的容器    线程 (thread) 线程是进程执行的最小单位，一个进程中至少包含一个线程(主线程)，进程中任务都在线程中执行(主线程或子线程)。是代码独立执行的路径。    任务 (task) 需要执行的工作的抽象概念。    并行 (parallel) 并行是一种使用">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;uploads&#x2F;articlepic&#x2F;20191216_01.jpg">
+<meta property="og:updated_time" content="2019-12-16T12:48:41.402Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;uploads&#x2F;articlepic&#x2F;20191216_01.jpg">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/content/edab7fec.html"/>
 
 
 
 
 
-  <title>MW技术栈</title>
+  <title>关于串行、并发、并行等的说明 | MW技术栈</title>
   
 
 
@@ -141,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/edab7fec.html" itemprop="url">关于串行、并发、并行等的说明</a></h1>
+          <h1 class="post-title" itemprop="name headline">关于串行、并发、并行等的说明</h1>
         
 
         <div class="post-meta">
@@ -362,9 +363,7 @@
       
 
       
-        
-          
-            <h4 id="一、概念术语"><a href="#一、概念术语" class="headerlink" title="一、概念术语"></a>一、概念术语</h4><ol>
+        <h4 id="一、概念术语"><a href="#一、概念术语" class="headerlink" title="一、概念术语"></a>一、概念术语</h4><ol>
 <li><p>进程 (<code>process</code>)</p>
 <p>系统中正在运行的一个程序的实例(即一个正在运行的可执行文件)，具有一定的独立功能，是线程的容器</p>
 </li>
@@ -426,14 +425,20 @@
 <p>​    </p>
 <p>​    </p>
 
-          
-        
       
     </div>
     
     
     
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wchatq.png" alt="陌问.MW wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号，及时获取知识！</div>
+</div>
+
+      </div>
     
 
     
@@ -442,333 +447,46 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/3b516ae7.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/3b516ae7.html" itemprop="url">[OC]self与super调用本质分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-01T23:07:25+08:00">
-                2019-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">移动开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/%E4%B8%B2%E8%A1%8C/" rel="tag"># 串行</a>
           
-
+            <a href="/tags/%E5%B9%B6%E5%8F%91/" rel="tag"># 并发</a>
           
-            
+            <a href="/tags/%E5%B9%B6%E8%A1%8C/" rel="tag"># 并行</a>
           
-
+            <a href="/tags/serail/" rel="tag"># serail</a>
           
+            <a href="/tags/coucurrent/" rel="tag"># coucurrent</a>
           
-
+            <a href="/tags/queue/" rel="tag"># queue</a>
           
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h4 id="一、self-基本说明"><a href="#一、self-基本说明" class="headerlink" title="一、self 基本说明"></a>一、self 基本说明</h4><p>在日常开发中，我们经常使用到<code>self</code>关键字，比如，访问属性，调用实例方法等。那么<code>self</code>到底指的是什么？我们来看一下官方文档的解释和定义：</p>
-<blockquote>
-<p>Returns the receiver.   //返回接收器</p>
-</blockquote>
-<p>在看一下<code>NSObject</code>中关于<code>self</code>的一些说法：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/3b516ae7.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/content/3b516ae7.html" rel="next" title="[OC]self与super调用本质分析">
+                <i class="fa fa-chevron-left"></i> [OC]self与super调用本质分析
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/b7bda735.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/b7bda735.html" itemprop="url">[OC]关于类簇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T07:00:08+08:00">
-                2019-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">移动开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h4 id="一、引语"><a href="#一、引语" class="headerlink" title="一、引语"></a>一、引语</h4><p>首先新建基于 Single View App的工程，在<code>ViewController.m</code>文件中添加如下代码(1-1)：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [[<span class="built_in">NSString</span> alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 length:%lu"</span>, string1.length);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/b7bda735.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -778,10 +496,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -789,6 +508,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -809,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -874,6 +606,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、概念术语"><span class="nav-number">1.</span> <span class="nav-text">一、概念术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、图解说明"><span class="nav-number">2.</span> <span class="nav-text">二、图解说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1002,6 +750,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
