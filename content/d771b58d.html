@@ -79,14 +79,18 @@
 
 
 
-<meta name="description" content="技术分析，分享，记录，学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MW技术栈">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta name="description" content="一、概念GCD(Grand Central Dispatch)，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[OC]GCD的使用精解(-)">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d.html">
 <meta property="og:site_name" content="MW技术栈">
-<meta property="og:description" content="技术分析，分享，记录，学习">
+<meta property="og:description" content="一、概念GCD(Grand Central Dispatch)，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_02.png">
+<meta property="og:updated_time" content="2019-12-18T17:28:45.752Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/content/d771b58d.html"/>
 
 
 
 
 
-  <title>MW技术栈</title>
+  <title>[OC]GCD的使用精解(-) | MW技术栈</title>
   
 
 
@@ -141,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/d771b58d.html" itemprop="url">[OC]GCD的使用精解(-)</a></h1>
+          <h1 class="post-title" itemprop="name headline">[OC]GCD的使用精解(-)</h1>
         
 
         <div class="post-meta">
@@ -329,9 +330,7 @@
       
 
       
-        
-          
-            <h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p><code>GCD(Grand Central Dispatch)</code>，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。                                                                          </p>
+        <h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p><code>GCD(Grand Central Dispatch)</code>，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。                                                                          </p>
 <p><code>GCD API</code>的核心概念是调度队列，对线程的操作实际上是由调度队列完成的，开发者只需将任务添加到调度队列即可，系统责线程的创建、管理，提交给调度队列的任务会在完全受系统管理的线程池上执行。因为线程的管理由系统执行，系统会根据系统占用资源相对合理分配资源，比传统的线程提高了效率。</p>
 <h4 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h4><ol>
 <li><p><code>Dispatch Queue</code> 派发队列</p>
@@ -447,14 +446,20 @@
 
 <p>同样是串行队列，为何第一个<code>dispatch_sync</code>没有造成死锁，而第二个就造成了呢？其实就是文档中说的：<em>如果提交block的目标队列与当前所在的队列是同一队列，将造成死锁</em>。因为当执行第一个<code>dispatch_sync</code>时，将任务2添加到我们创建的<code>serial_queue</code>队列中，而此时所在的队列是系统的主队列，添加到的队列与当前所在的队列不是一个队列。而当第二个<code>dispatch_sync</code>执行时，所在的队列就是我们创建的<code>serial_queue</code>队列，目标队列与当前所在队列为同一队列，造成死锁的过程上面已经讲解了。各位可以尝试将第一个<code>dispatch_sync</code>换成<code>dispatch_async</code>等，自己试试结果，这里就不在多说。  </p>
 
-          
-        
       
     </div>
     
     
     
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wchatq.png" alt="陌问.MW wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号，及时获取知识！</div>
+</div>
+
+      </div>
     
 
     
@@ -465,176 +470,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/edab7fec.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/edab7fec.html" itemprop="url">关于串行、并发、并行等的说明</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T20:27:32+08:00">
-                2019-12-16
-              </time>
+              <a href="/content/edab7fec.html" rel="next" title="关于串行、并发、并行等的说明">
+                <i class="fa fa-chevron-left"></i> 关于串行、并发、并行等的说明
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">程序设计</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h4 id="一、概念术语"><a href="#一、概念术语" class="headerlink" title="一、概念术语"></a>一、概念术语</h4><ol>
-<li><p>进程 (<code>process</code>)</p>
-<p>系统中正在运行的一个程序的实例(即一个正在运行的可执行文件)，具有一定的独立功能，是线程的容器</p>
-</li>
-</ol>
-<ol start="2">
-<li><p>线程 (<code>thread</code>)</p>
-<p>线程是进程执行的最小单位，一个进程中至少包含一个线程(主线程)，进程中任务都在线程中执行(主线程或子线程)。是代码独立执行的路径。</p></li></ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/edab7fec.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -644,329 +501,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/3b516ae7.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/3b516ae7.html" itemprop="url">[OC]self与super调用本质分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-01T23:07:25+08:00">
-                2019-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">移动开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="一、self-基本说明"><a href="#一、self-基本说明" class="headerlink" title="一、self 基本说明"></a>一、self 基本说明</h4><p>在日常开发中，我们经常使用到<code>self</code>关键字，比如，访问属性，调用实例方法等。那么<code>self</code>到底指的是什么？我们来看一下官方文档的解释和定义：</p>
-<blockquote>
-<p>Returns the receiver.   //返回接收器</p>
-</blockquote>
-<p>在看一下<code>NSObject</code>中关于<code>self</code>的一些说法：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/3b516ae7.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/b7bda735.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/b7bda735.html" itemprop="url">[OC]关于类簇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T07:00:08+08:00">
-                2019-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">移动开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="一、引语"><a href="#一、引语" class="headerlink" title="一、引语"></a>一、引语</h4><p>首先新建基于 Single View App的工程，在<code>ViewController.m</code>文件中添加如下代码(1-1)：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [[<span class="built_in">NSString</span> alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 length:%lu"</span>, string1.length);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/b7bda735.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -974,6 +513,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -994,8 +537,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1059,6 +611,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、基本用法"><span class="nav-number">2.</span> <span class="nav-text">二、基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、死锁-deadlock"><span class="nav-number">3.</span> <span class="nav-text">三、死锁 (deadlock)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1187,6 +755,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

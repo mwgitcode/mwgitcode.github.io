@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;edab7fec&#x2F;20191216_01.jpg">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;edab7fec&#x2F;20191216_02.jpg">
-<meta property="og:updated_time" content="2019-12-16T13:32:23.534Z">
+<meta property="og:updated_time" content="2019-12-19T05:34:03.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;edab7fec&#x2F;20191216_01.jpg">
 
@@ -373,11 +373,7 @@
 <li><p>线程 (<code>thread</code>)</p>
 <p>线程是进程执行的最小单位，一个进程中至少包含一个线程(主线程)，进程中任务都在线程中执行(主线程或子线程)。是代码独立执行的路径。</p>
 <a id="more"></a>
-
-
 </li>
-</ol>
-<ol start="3">
 <li><p>任务 (<code>task</code>)</p>
 <p>需要执行的工作的抽象概念。</p>
 </li>
@@ -397,7 +393,7 @@
 </ol>
 <ol start="7">
 <li><p>队列 (<code>queue</code>)</p>
-<p>是一种先进先出(FIFO)的线性表。与现实世界中的规则一样，先进入的先办理业务人，然后先出去。</p>
+<p>是一种先进先出(FIFO)的线性表。与现实世界中的规则一样，先进入的先办理业务。</p>
 </li>
 </ol>
 <ol start="8">
@@ -412,12 +408,12 @@
 </ol>
 <ol start="10">
 <li><p>串行队列 (<code>serial queue</code>)</p>
-<p>同串行，按照进入的先后顺序执行，后面一个任务需要等待前面一个任务执行完毕执行，依次类推。</p>
+<p>按照FIFO原则，出队后将任务移交给线程执行实际工作，后面一个任务需要等待前面一个任务执行完毕在出队移交，依次类推</p>
 </li>
 </ol>
 <ol start="11">
 <li><p>并发队列 (<code>concurrent queue</code>)</p>
-<p>按照进入的先后顺序调用，但是调用后是同步执行，不会等待前面任务执行完毕在继续执行。会因为系统因素与任务复杂度出现不同的执行结果，但最后出队也是按照先进先出的顺序执行，只是中间环节不同。</p>
+<p>遵循FIFO原则入队出队，任务出队意味着将任务移交给一个线程，并发不用等待，移交给线程后立刻返回，后一个任务继续出队，移交线程。会因为系统因素与任务复杂度出现不同的执行结果，但出队也是按照先进先出的顺序执行，只是移交给线程后的处理结果不同(开辟多线程才会出现不同的执行结果，单线程依然顺序输出，因为只有一条线程执行任务)。</p>
 </li>
 </ol>
 <h4 id="二、图解说明"><a href="#二、图解说明" class="headerlink" title="二、图解说明"></a>二、图解说明</h4><p>可参照下图理解.</p>
@@ -482,6 +478,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/content/d771b58d.html" rel="prev" title="[OC]GCD的使用精解(-)">
+                [OC]GCD的使用精解(-) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -562,7 +562,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
