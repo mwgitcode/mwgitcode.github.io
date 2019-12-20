@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_02.png">
-<meta property="og:updated_time" content="2019-12-20T03:28:47.232Z">
+<meta property="og:updated_time" content="2019-12-20T04:03:22.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
 
@@ -233,9 +233,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -365,7 +399,7 @@
 
       
         <h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p><code>GCD(Grand Central Dispatch)</code>，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。                                                                          </p>
-<p><code>GCD API</code>的核心概念是调度队列，对线程的操作实际上是由调度队列完成的，开发者只需将任务添加到调度队列即可，系统责线程的创建、管理，提交给调度队列的任务会在完全受系统管理的线程池上执行。因为线程的管理由系统执行，系统会根据系统占用资源相对合理分配资源，比传统的线程提高了效率。</p>
+<p><code>GCD API</code>的核心概念是调度队列，对线程的操作实际上是由调度队列完成的，开发者只需将任务添加到调度队列即可，系统负责线程的创建、管理，提交给调度队列的任务会在完全受系统管理的线程池上执行。因为线程的管理由系统执行，系统会根据系统占用资源相对合理分配资源，比传统的线程提高了效率。</p>
 <a id="more"></a>
 
 <h4 id="二、Dispatch-Queue-派发队列"><a href="#二、Dispatch-Queue-派发队列" class="headerlink" title="二、Dispatch Queue 派发队列"></a>二、<code>Dispatch Queue</code> 派发队列</h4><h5 id="1-主队列"><a href="#1-主队列" class="headerlink" title="1.主队列"></a>1.主队列</h5><p>主队列任务在主线程中执行，会阻塞主线程，是一个串行队列，可以通过以下方式获取，代码(1-1)，</p>
@@ -428,13 +462,13 @@
 
 <p>为了便于做对比，我将输出后的顺序调整了粘贴出来，大家的输出顺序应该是不一样的。</p>
 <p>可以很明显的区别：提交到非主队列之前和之后所在线程相同，而提交到主队列后执行的线程便是主线程。</p>
-<p>此外还有主队列与全局队列，主队列属于串行，全局队列属于并发。主队列在主线程执行，所以通过<code>dispatch_async</code>异步添加到主队列的任务不会开启新的线程，在主队列(串行队列)顺序执行。通过<code>dispatch_sync</code>同步添加到主队列的任务容易造成死锁(不是一定)，下面会将到。  </p>
+<p>此外还有主队列与全局队列，主队列属于串行，全局队列属于并发。主队列在主线程执行，所以通过<code>dispatch_async</code>异步添加到主队列的任务不会开启新的线程，在主队列(串行队列)顺序执行。通过<code>dispatch_sync</code>同步添加到主队列的任务容易造成死锁(不是一定)，下面会讲到。  </p>
 <p>总结：<code>dispatch_sync</code>不会开辟新线程， <code>dispatch_async</code>会开辟新线程(添加主队列除外，主队列任务始终在主线程执行)。并发需要多线程的支持，能创建多线程的情况下才能发挥并发的效用。提交给队列的任务，除了主队列在主线程执行之外，系统无法保证其他队列在哪个线程执行。   </p>
 <p>在设计并发任务时，也可以使用多个串行队列并行的方式处理，但是不建议这样做，因为这样做会开辟多条线程，每个串行队列都需要一个单独的线程，以此方式来实现并发的目的。总体建议就是无论并发还是串行都尽可能的少通过用户主动创建线程，如有需要可提交任务到全局并发队列实现目的。使用队列处理多任务，系统会根据线程的执行情况分配线程执行，并非一个线程处理一个任务，一个任务处理完成，可以继续处理其他任务，系统会在此做优化使用尽可能少的线程执行更多的任务。因为线程的开销相比队列大的多，所以尽量多使用多列处理任务，由系统分配线程处理。</p>
 <p> 在使用时应注意死锁问题。</p>
 <p>关于队列相关的说明在另一篇文章有介绍，通过下面链接查看：  </p>
 <p><a href="http://www.mwpush.com/content/edab7fec.html" target="_blank" rel="noopener">关于串行、并发、并行等的说明</a></p>
-<h4 id="三、死锁-deadlock"><a href="#三、死锁-deadlock" class="headerlink" title="三、死锁 (deadlock)"></a>三、死锁 (deadlock)</h4><p>关于<code>GCD</code>中的死锁，网上有很多说明，也看了很多，但是都是看似将的很有道理却难以让人明白，或者有些根本就是讲的不对，总会扯到一些无所谓的条件上。当然，本人也是貌似懂了，所以说一下这个问题，从一段最基本的代码开始，如下：</p>
+<h4 id="三、死锁-deadlock"><a href="#三、死锁-deadlock" class="headerlink" title="三、死锁 (deadlock)"></a>三、死锁 (deadlock)</h4><p>关于<code>GCD</code>中的死锁，网上有很多说明，也看了很多，但是都是看似讲的很有道理却难以让人明白，或者有些根本就是讲的不对，总会扯到一些无所谓的条件上。当然，本人也是貌似懂了，所以说一下这个问题，从一段最基本的代码开始，如下：</p>
    <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"任务1"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"任务2"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"任务3"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 <p>执行结果如下：</p>
@@ -443,7 +477,7 @@
 <p>附上几张张错误的截图，如下：</p>
 <p><img src="/content/d771b58d/20191218_01.png" alt="20191218_01"></p>
 <p>   <img src="/content/d771b58d/20191218_02.png" alt="11"></p>
-<p>网上很大一部分文章在将到这段代码的时候总会把这里的任务3，也就是<code>NSLog(@&quot;任务3&quot;);</code>，这部分也扯进去，但是这段代码的错误原因与<code>NSLog(@&quot;任务3&quot;);</code>有与没有根本没有任何关系，删除<code>NSLog(@&quot;任务3&quot;);</code>也是同样的错误。</p>
+<p>网上很大一部分文章在讲到这段代码的时候总会把这里的任务3，也就是<code>NSLog(@&quot;任务3&quot;);</code>，这部分也扯进去，但是这段代码的错误原因与<code>NSLog(@&quot;任务3&quot;);</code>有与没有根本没有任何关系，删除<code>NSLog(@&quot;任务3&quot;);</code>也是同样的错误。</p>
 <p>这段代码只能执行到任务1，我们首先看一下图2中的第一段红色字体部分，内容如下：</p>
    <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="string">"BUG IN CLIENT OF LIBDISPATCH: dispatch_sync called on queue already owned by current thread"</span></span></pre></td></tr></table></figure>
 
@@ -882,6 +916,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
