@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_02.png">
-<meta property="og:updated_time" content="2019-12-19T17:51:55.497Z">
+<meta property="og:updated_time" content="2019-12-19T17:56:56.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
 
@@ -366,6 +366,8 @@
       
         <h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p><code>GCD(Grand Central Dispatch)</code>，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。                                                                          </p>
 <p><code>GCD API</code>的核心概念是调度队列，对线程的操作实际上是由调度队列完成的，开发者只需将任务添加到调度队列即可，系统责线程的创建、管理，提交给调度队列的任务会在完全受系统管理的线程池上执行。因为线程的管理由系统执行，系统会根据系统占用资源相对合理分配资源，比传统的线程提高了效率。</p>
+<a id="more"></a>
+
 <h4 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h4><ol>
 <li><p><code>Dispatch Queue</code> 派发队列</p>
 <ul>
@@ -481,7 +483,7 @@
    <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">deadlock[<span class="number">71971</span>:<span class="number">7964750</span>] 任务<span class="number">1</span></span></pre></td></tr></table></figure>
 
 <p>附上几张张错误的截图，如下：</p>
-<p>   -<img src="/content/d771b58d/20191218_01.png" alt="20191218_01"></p>
+<p><img src="/content/d771b58d/20191218_01.png" alt="20191218_01"></p>
 <p>   <img src="/content/d771b58d/20191218_02.png" alt="11"></p>
 <p>网上很大一部分文章在将到这段代码的时候总会把这里的任务3，也就是<code>NSLog(@&quot;任务3&quot;);</code>，这部分也扯进去，但是这段代码的错误原因与<code>NSLog(@&quot;任务3&quot;);</code>有与没有根本没有任何关系，删除<code>NSLog(@&quot;任务3&quot;);</code>也是同样的错误。</p>
 <p>这段代码只能执行到任务1，我们首先看一下图2中的第一段红色字体部分，内容如下：</p>
@@ -506,7 +508,7 @@
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">deadlock[<span class="number">72943</span>:<span class="number">8153590</span>] 任务<span class="number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">deadlock[<span class="number">72943</span>:<span class="number">8153590</span>] 任务<span class="number">2</span></span></pre></td></tr></table></figure>
 
 <p>同样是串行队列，为何第一个<code>dispatch_sync</code>没有造成死锁，而第二个就造成了呢？其实就是文档中说的：<em>如果提交block的目标队列与当前所在的队列是同一队列，将造成死锁</em>。因为当执行第一个<code>dispatch_sync</code>时，将任务2添加到我们创建的<code>serial_queue</code>队列中，而此时所在的队列是系统的主队列，添加到的队列与当前所在的队列不是一个队列。而当第二个<code>dispatch_sync</code>执行时，所在的队列就是我们创建的<code>serial_queue</code>队列，目标队列与当前所在队列为同一队列，造成死锁的过程上面已经讲解了。各位可以尝试将第一个<code>dispatch_sync</code>换成<code>dispatch_async</code>等，自己试试结果，这里就不在多说。</p>
-<h4 id="四、调度组"><a href="#四、调度组" class="headerlink" title="四、调度组"></a>四、调度组</h4><p>当队列中有多个任务需要处理，且需要根据这些任务的处理结果执行某些操作时，我们可以选择调度组(<code>Dispatch Group</code>)来操作，当然也有其他的实现方式，但是相对来说，使用调度组实现代码整洁且逻辑清晰。当然使用串行队列也能达到目的，但是如果大部分任务之间没有依赖关系，则最好选择并发处理。</p>
+<h4 id="四、调度组-Dispatch-Group"><a href="#四、调度组-Dispatch-Group" class="headerlink" title="四、调度组(Dispatch Group)"></a>四、调度组(Dispatch Group)</h4><p>当队列中有多个任务需要处理，且需要根据这些任务的处理结果执行某些操作时，我们可以选择调度组(<code>Dispatch Group</code>)来操作，当然也有其他的实现方式，但是相对来说，使用调度组实现代码整洁且逻辑清晰。当然使用串行队列也能达到目的，但是如果大部分任务之间没有依赖关系，则最好选择并发处理。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> g_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">dispatch_group_t group = dispatch_group_create();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">dispatch_group_async(group, g_queue, ^&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"任务1"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">dispatch_group_async(group, g_queue, ^&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"任务2"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">dispatch_group_async(group, g_queue, ^&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"任务3"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">dispatch_group_async(group, g_queue, ^&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"任务4"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">dispatch_group_notify(group, g_queue, ^&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"全部任务执行完毕"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
 
 <p>输出结果如下：</p>
@@ -742,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、基本用法"><span class="nav-number">2.</span> <span class="nav-text">二、基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、死锁-deadlock"><span class="nav-number">3.</span> <span class="nav-text">三、死锁 (deadlock)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、调度组"><span class="nav-number">4.</span> <span class="nav-text">四、调度组</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、基本用法"><span class="nav-number">2.</span> <span class="nav-text">二、基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、死锁-deadlock"><span class="nav-number">3.</span> <span class="nav-text">三、死锁 (deadlock)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、调度组-Dispatch-Group"><span class="nav-number">4.</span> <span class="nav-text">四、调度组(Dispatch Group)</span></a></li></ol></div>
             
 
           </div>
