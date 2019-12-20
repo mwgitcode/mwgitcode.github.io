@@ -82,12 +82,12 @@
 <meta name="description" content="一、引语首先新建基于 Single View App的工程，在ViewController.m文件中添加如下代码(1-1)： 1- (void)viewDidLoad &amp;#123;2    [super viewDidLoad];3    NSString * string1 &#x3D; [[NSString alloc] init];4    NSLog(@&quot;string1 length:%lu&quot;, s">
 <meta name="keywords" content="ObjC,IOS,Objective-C,类簇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[OC]关于类簇">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;b7bda735.html">
+<meta property="og:title" content="[IOS.OC]关于类簇">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;b7bda735.html">
 <meta property="og:site_name" content="MW技术栈">
 <meta property="og:description" content="一、引语首先新建基于 Single View App的工程，在ViewController.m文件中添加如下代码(1-1)： 1- (void)viewDidLoad &amp;#123;2    [super viewDidLoad];3    NSString * string1 &#x3D; [[NSString alloc] init];4    NSLog(@&quot;string1 length:%lu&quot;, s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-29T11:07:03.768Z">
+<meta property="og:updated_time" content="2019-12-20T07:33:14.435Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/content/b7bda735.html"/>
+  <link rel="canonical" href="http://www.mwpush.com/content/b7bda735.html"/>
 
 
 
 
 
-  <title>[OC]关于类簇 | MW技术栈</title>
+  <title>[IOS.OC]关于类簇 | MW技术栈</title>
   
 
 
@@ -202,7 +202,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             归档
           </a>
@@ -232,7 +232,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+            
+            <a href="javascript:;" target="_blank" rel="noopener" onclick="return false;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -295,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/b7bda735.html">
+    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/b7bda735.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陌问.MW">
@@ -312,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[OC]关于类簇</h1>
+          <h1 class="post-title" itemprop="name headline">[IOS.OC]关于类簇</h1>
         
 
         <div class="post-meta">
@@ -482,6 +483,24 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    陌问.MW
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.mwpush.com/content/b7bda735.html" title="[IOS.OC]关于类簇">http://www.mwpush.com/content/b7bda735.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -512,8 +531,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/content/3b516ae7.html" rel="prev" title="[OC]self与super调用本质分析">
-                [OC]self与super调用本质分析 <i class="fa fa-chevron-right"></i>
+              <a href="/content/3b516ae7.html" rel="prev" title="[IOS.OC]self与super调用本质分析">
+                [IOS.OC]self与super调用本质分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -593,7 +612,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%7C%7C%20archive">
+                <a href="/archives/">
               
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
@@ -617,7 +636,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1038,7 +1057,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('-1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

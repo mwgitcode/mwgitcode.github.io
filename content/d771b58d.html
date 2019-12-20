@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ObjC,Objective-C,gcd,队列,concurrent," />
+  <meta name="keywords" content="ObjC,Objective-C,ios,gcd,队列,concurrent," />
 
 
 
@@ -80,18 +80,18 @@
 
 
 <meta name="description" content="一、概念GCD(Grand Central Dispatch)，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。">
-<meta name="keywords" content="ObjC,Objective-C,gcd,队列,concurrent">
+<meta name="keywords" content="ObjC,Objective-C,ios,gcd,队列,concurrent">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[OC]GCD的使用精解(-)">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d.html">
+<meta property="og:title" content="[IOS.OC]GCD的使用精解(-)">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;d771b58d.html">
 <meta property="og:site_name" content="MW技术栈">
 <meta property="og:description" content="一、概念GCD(Grand Central Dispatch)，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_02.png">
-<meta property="og:updated_time" content="2019-12-20T04:03:22.609Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_02.png">
+<meta property="og:updated_time" content="2019-12-20T07:32:25.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;d771b58d&#x2F;20191218_01.png">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/content/d771b58d.html"/>
+  <link rel="canonical" href="http://www.mwpush.com/content/d771b58d.html"/>
 
 
 
 
 
-  <title>[OC]GCD的使用精解(-) | MW技术栈</title>
+  <title>[IOS.OC]GCD的使用精解(-) | MW技术栈</title>
   
 
 
@@ -205,7 +205,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             归档
           </a>
@@ -235,7 +235,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+            
+            <a href="javascript:;" target="_blank" rel="noopener" onclick="return false;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -298,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/d771b58d.html">
+    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/d771b58d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陌问.MW">
@@ -315,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[OC]GCD的使用精解(-)</h1>
+          <h1 class="post-title" itemprop="name headline">[IOS.OC]GCD的使用精解(-)</h1>
         
 
         <div class="post-meta">
@@ -467,7 +468,7 @@
 <p>在设计并发任务时，也可以使用多个串行队列并行的方式处理，但是不建议这样做，因为这样做会开辟多条线程，每个串行队列都需要一个单独的线程，以此方式来实现并发的目的。总体建议就是无论并发还是串行都尽可能的少通过用户主动创建线程，如有需要可提交任务到全局并发队列实现目的。使用队列处理多任务，系统会根据线程的执行情况分配线程执行，并非一个线程处理一个任务，一个任务处理完成，可以继续处理其他任务，系统会在此做优化使用尽可能少的线程执行更多的任务。因为线程的开销相比队列大的多，所以尽量多使用多列处理任务，由系统分配线程处理。</p>
 <p> 在使用时应注意死锁问题。</p>
 <p>关于队列相关的说明在另一篇文章有介绍，通过下面链接查看：  </p>
-<p><a href="http://www.mwpush.com/content/edab7fec.html" target="_blank" rel="noopener">关于串行、并发、并行等的说明</a></p>
+<p><a href="http://www.mwpush.com/content/edab7fec.html">关于串行、并发、并行等的说明</a></p>
 <h4 id="三、死锁-deadlock"><a href="#三、死锁-deadlock" class="headerlink" title="三、死锁 (deadlock)"></a>三、死锁 (deadlock)</h4><p>关于<code>GCD</code>中的死锁，网上有很多说明，也看了很多，但是都是看似讲的很有道理却难以让人明白，或者有些根本就是讲的不对，总会扯到一些无所谓的条件上。当然，本人也是貌似懂了，所以说一下这个问题，从一段最基本的代码开始，如下：</p>
    <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"任务1"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"任务2"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"任务3"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
@@ -566,6 +567,24 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    陌问.MW
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.mwpush.com/content/d771b58d.html" title="[IOS.OC]GCD的使用精解(-)">http://www.mwpush.com/content/d771b58d.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -574,6 +593,8 @@
             <a href="/tags/ObjC/" rel="tag"># ObjC</a>
           
             <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          
+            <a href="/tags/ios/" rel="tag"># ios</a>
           
             <a href="/tags/gcd/" rel="tag"># gcd</a>
           
@@ -679,7 +700,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%7C%7C%20archive">
+                <a href="/archives/">
               
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
@@ -703,7 +724,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1124,7 +1145,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('-1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

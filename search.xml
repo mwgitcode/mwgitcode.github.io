@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>[OC]GCD的使用精解(-)</title>
+    <title>[IOS.OC]GCD的使用精解(-)</title>
     <url>/content/d771b58d.html</url>
     <content><![CDATA[<h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p><code>GCD(Grand Central Dispatch)</code>，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。                                                                          </p>
 <p><code>GCD API</code>的核心概念是调度队列，对线程的操作实际上是由调度队列完成的，开发者只需将任务添加到调度队列即可，系统负责线程的创建、管理，提交给调度队列的任务会在完全受系统管理的线程池上执行。因为线程的管理由系统执行，系统会根据系统占用资源相对合理分配资源，比传统的线程提高了效率。</p>
@@ -72,7 +72,7 @@
 <p>在设计并发任务时，也可以使用多个串行队列并行的方式处理，但是不建议这样做，因为这样做会开辟多条线程，每个串行队列都需要一个单独的线程，以此方式来实现并发的目的。总体建议就是无论并发还是串行都尽可能的少通过用户主动创建线程，如有需要可提交任务到全局并发队列实现目的。使用队列处理多任务，系统会根据线程的执行情况分配线程执行，并非一个线程处理一个任务，一个任务处理完成，可以继续处理其他任务，系统会在此做优化使用尽可能少的线程执行更多的任务。因为线程的开销相比队列大的多，所以尽量多使用多列处理任务，由系统分配线程处理。</p>
 <p> 在使用时应注意死锁问题。</p>
 <p>关于队列相关的说明在另一篇文章有介绍，通过下面链接查看：  </p>
-<p><a href="http://www.mwpush.com/content/edab7fec.html" target="_blank" rel="noopener">关于串行、并发、并行等的说明</a></p>
+<p><a href="http://www.mwpush.com/content/edab7fec.html">关于串行、并发、并行等的说明</a></p>
 <h4 id="三、死锁-deadlock"><a href="#三、死锁-deadlock" class="headerlink" title="三、死锁 (deadlock)"></a>三、死锁 (deadlock)</h4><p>关于<code>GCD</code>中的死锁，网上有很多说明，也看了很多，但是都是看似讲的很有道理却难以让人明白，或者有些根本就是讲的不对，总会扯到一些无所谓的条件上。当然，本人也是貌似懂了，所以说一下这个问题，从一段最基本的代码开始，如下：</p>
    <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">       </span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"任务1"</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;  </span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"任务2"</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"任务3"</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">  </span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;  </span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
@@ -159,6 +159,7 @@
       <tags>
         <tag>ObjC</tag>
         <tag>Objective-C</tag>
+        <tag>ios</tag>
         <tag>gcd</tag>
         <tag>队列</tag>
         <tag>concurrent</tag>
@@ -239,7 +240,7 @@
       </tags>
   </entry>
   <entry>
-    <title>[OC]self与super调用本质分析</title>
+    <title>[IOS.OC]self与super调用本质分析</title>
     <url>/content/3b516ae7.html</url>
     <content><![CDATA[<h4 id="一、self-基本说明"><a href="#一、self-基本说明" class="headerlink" title="一、self 基本说明"></a>一、self 基本说明</h4><p>在日常开发中，我们经常使用到<code>self</code>关键字，比如，访问属性，调用实例方法等。那么<code>self</code>到底指的是什么？我们来看一下官方文档的解释和定义：</p>
 <blockquote>
@@ -320,7 +321,7 @@
       </tags>
   </entry>
   <entry>
-    <title>[OC]关于类簇</title>
+    <title>[IOS.OC]关于类簇</title>
     <url>/content/b7bda735.html</url>
     <content><![CDATA[<h4 id="一、引语"><a href="#一、引语" class="headerlink" title="一、引语"></a>一、引语</h4><p>首先新建基于 Single View App的工程，在<code>ViewController.m</code>文件中添加如下代码(1-1)：</p>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [[<span class="built_in">NSString</span> alloc] init];</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 length:%lu"</span>, string1.length);</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>

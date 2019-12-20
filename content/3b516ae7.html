@@ -82,12 +82,12 @@
 <meta name="description" content="一、self 基本说明在日常开发中，我们经常使用到self关键字，比如，访问属性，调用实例方法等。那么self到底指的是什么？我们来看一下官方文档的解释和定义：  Returns the receiver.   &#x2F;&#x2F;返回接收器  在看一下NSObject中关于self的一些说法：">
 <meta name="keywords" content="ObjC,super,self,IOS,Objective-C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[OC]self与super调用本质分析">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;content&#x2F;3b516ae7.html">
+<meta property="og:title" content="[IOS.OC]self与super调用本质分析">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;3b516ae7.html">
 <meta property="og:site_name" content="MW技术栈">
 <meta property="og:description" content="一、self 基本说明在日常开发中，我们经常使用到self关键字，比如，访问属性，调用实例方法等。那么self到底指的是什么？我们来看一下官方文档的解释和定义：  Returns the receiver.   &#x2F;&#x2F;返回接收器  在看一下NSObject中关于self的一些说法：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-01T15:23:33.694Z">
+<meta property="og:updated_time" content="2019-12-20T07:32:48.842Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/content/3b516ae7.html"/>
+  <link rel="canonical" href="http://www.mwpush.com/content/3b516ae7.html"/>
 
 
 
 
 
-  <title>[OC]self与super调用本质分析 | MW技术栈</title>
+  <title>[IOS.OC]self与super调用本质分析 | MW技术栈</title>
   
 
 
@@ -202,7 +202,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             归档
           </a>
@@ -232,7 +232,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+            
+            <a href="javascript:;" target="_blank" rel="noopener" onclick="return false;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -295,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/content/3b516ae7.html">
+    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/3b516ae7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陌问.MW">
@@ -312,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[OC]self与super调用本质分析</h1>
+          <h1 class="post-title" itemprop="name headline">[IOS.OC]self与super调用本质分析</h1>
         
 
         <div class="post-meta">
@@ -480,6 +481,24 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    陌问.MW
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.mwpush.com/content/3b516ae7.html" title="[IOS.OC]self与super调用本质分析">http://www.mwpush.com/content/3b516ae7.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -506,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/content/b7bda735.html" rel="next" title="[OC]关于类簇">
-                <i class="fa fa-chevron-left"></i> [OC]关于类簇
+              <a href="/content/b7bda735.html" rel="next" title="[IOS.OC]关于类簇">
+                <i class="fa fa-chevron-left"></i> [IOS.OC]关于类簇
               </a>
             
           </div>
@@ -597,7 +616,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%7C%7C%20archive">
+                <a href="/archives/">
               
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
@@ -621,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1042,7 +1061,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('-1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

@@ -80,9 +80,10 @@
 
 
 <meta name="description" content="技术分析，分享，记录，学习">
+<meta name="keywords" content="ios,swift">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MW技术栈">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;12&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;archives&#x2F;2019&#x2F;12&#x2F;index.html">
 <meta property="og:site_name" content="MW技术栈">
 <meta property="og:description" content="技术分析，分享，记录，学习">
 <meta property="og:locale" content="zh-Hans">
@@ -116,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/12/"/>
+  <link rel="canonical" href="http://www.mwpush.com/archives/2019/12/"/>
 
 
 
@@ -200,7 +201,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             归档
           </a>
@@ -230,7 +231,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+            
+            <a href="javascript:;" target="_blank" rel="noopener" onclick="return false;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -318,7 +320,7 @@
         
             <a class="post-title-link" href="/content/d771b58d.html" itemprop="url">
               
-                <span itemprop="name">[OC]GCD的使用精解(-)</span>
+                <span itemprop="name">[IOS.OC]GCD的使用精解(-)</span>
               
             </a>
         
@@ -392,7 +394,7 @@
         
             <a class="post-title-link" href="/content/3b516ae7.html" itemprop="url">
               
-                <span itemprop="name">[OC]self与super调用本质分析</span>
+                <span itemprop="name">[IOS.OC]self与super调用本质分析</span>
               
             </a>
         
@@ -466,7 +468,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%7C%7C%20archive">
+                <a href="/archives/">
               
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
@@ -490,7 +492,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -891,7 +893,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('-1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
