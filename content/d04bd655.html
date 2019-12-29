@@ -88,7 +88,7 @@
 <meta property="og:description" content="一、Dispatch Semaphore使用信号量可以达到控制并发数和线程锁的目的。它通过持有计数的信号的增减来控制访问。当计数为0时等待，计数大于等于1时，减1继续执行。 dispatch_semaphore_create通过初始值创建一个信号量，有一个参数，为long类型，即初始值，应大于等于0，返回值为dispatch_semaphore_t类型信号量；">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;d04bd655&#x2F;20191224_01.png">
-<meta property="og:updated_time" content="2019-12-24T15:43:44.416Z">
+<meta property="og:updated_time" content="2019-12-27T15:41:19.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;d04bd655&#x2F;20191224_01.png">
 
@@ -453,6 +453,7 @@
 <p><code>dispatch_source_testcancel</code>测试目标调度源是否已取消。</p>
 <p><code>dispatch_source_get_handle</code>返回与指定调度源相关联的基础系统句柄。</p>
 <p><code>dispatch_source_set_registration_handler</code>设置给定调度源的注册处理程序块。</p>
+<p><code>Dispatch Source</code>官方地址：<a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html#//apple_ref/doc/uid/TP40008091-CH103-SW13" target="_blank" rel="noopener">https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html#//apple_ref/doc/uid/TP40008091-CH103-SW13</a></p>
 <h4 id="三、Dispatch-I-O与Dispatch-Data介绍"><a href="#三、Dispatch-I-O与Dispatch-Data介绍" class="headerlink" title="三、Dispatch I/O与Dispatch Data介绍"></a>三、<code>Dispatch I/O</code>与<code>Dispatch Data</code>介绍</h4><p>通过使用<code>Dispatch I/O</code>和<code>Dispatch Data</code>可以将大的文件分割成若干小部分进行读取合并。</p>
 <p><code>dispatch_io_create</code>创建一个I/O通道，并将其与指定的文件描述相关联。</p>
 <p><code>dispatch_io_create_with_path</code>创建具有关联路径的调度I/O通道。</p>
@@ -632,7 +633,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -654,7 +655,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
