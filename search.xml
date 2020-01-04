@@ -151,42 +151,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[IOS.OC]RunLoop详解</title>
-    <url>/content/c598aae1.html</url>
-    <content><![CDATA[<h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p><code>RunLoop</code> 运行循环，是与线程相关的基础架构的一部分，它是一个对象，用来管理需要处理的事件和消息，并提供入口函数来执行事件循环时的逻辑。运行循环的目的是在有工作要做时让线程保持忙碌，没有工作时让线程休眠。</p>
-<p>每个线程，包括应用程序的主线程，都有一个相关的运行循环对象。线程与 <code>RunLoop</code> 之间存在一对一的关系，该关系存储在一个全局的 <code>Dictionary</code> 中。主线程的运行循环作为应用程序启动过程的一部分，自动设置并在主线程上运行。非主线程的运行循环需要显示运行，在创建线程时，并没有 <code>Runloop</code> ，如果不主动获取，它永远不会存在。<code>Runloop</code> 在第一次获取时创建，除了主线程之外，只能在线程内部获取 <code>RunLoop</code>。</p>
-<h4 id="二、RunLoop-存在的意义"><a href="#二、RunLoop-存在的意义" class="headerlink" title="二、RunLoop 存在的意义"></a>二、<code>RunLoop</code> 存在的意义</h4><p>通常一个线程一次只能执行一个任务，任务执行完毕时，退出线程。<code>RunLoop</code> 是一个运行循环，内部是一个 <code>do...while</code> 循环，它在线程中执行可以保持线程持续运行不退出，以”接收消息-&gt;等待-&gt;处理”的循环模式持续运行，直到循环结束。实现此模式的关键是管理事件/消息时，如果在不处理消息时，使线程休眠以免资源占用，在消息到达时唤醒线程。主要来说有以下几点：</p>
-<ul>
-<li>保持程序运行</li>
-<li>接收用户输入</li>
-<li>监听事件</li>
-<li>节省CPU时间</li>
-<li>调用解耦</li>
-</ul>
-<h4 id="三、消息处理"><a href="#三、消息处理" class="headerlink" title="三、消息处理"></a>三、消息处理</h4><p>在OS X和IOS系统中，提供了两种 <code>RunLoop</code> 对象 ：</p>
-<p>CoreFoundation框架内的 <code>CFRunLoopRef</code> ，该框架为纯C函数提供的API，所有API都是线程安全的。<br>Foundation框架内的 <code>NSRunLoop</code> ，<code>NSRunLoop</code> 是基于 <code>CFRunLoopRef</code> 的封装，提供了面相对象的API，是非线程安全的。</p>
-<p><code>NSRunLoop</code> 可以通过 <code>[[NSRunLoop currentRunLoop] getCFRunLoop]</code> 转换为  <code>CFRunLoopRef</code> 。</p>
-<p><code>RunLoop</code> 从两种不同类型的源接收消息：</p>
-<p>输入源(Input Sources )：传递异步事件，通常是来自另一个线程或其他应用程序的消息。</p>
-<p>计时器源(Timer Sources)：传递同步事件，这些事件是在计划的时间或重复的时间间隔发生。</p>
-<p><img src="/content/c598aae1/2020111233.jpg" alt="2020111233"></p>
-<h5 id="1-输入源-Input-Sources"><a href="#1-输入源-Input-Sources" class="headerlink" title="1.输入源(Input Sources)"></a>1.输入源(Input Sources)</h5><p>端口输入源：</p>
-<p>选择器源：</p>
-<p>自定义源：</p>
-<h5 id="2-计时器源"><a href="#2-计时器源" class="headerlink" title="2.计时器源"></a>2.计时器源</h5>]]></content>
-      <categories>
-        <category>移动开发</category>
-        <category>IOS开发</category>
-      </categories>
-      <tags>
-        <tag>ios</tag>
-        <tag>ObjC</tag>
-        <tag>RunLoop</tag>
-        <tag>NSTimer</tag>
-        <tag>Objective-C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[IOS.OC]线程锁</title>
     <url>/content/9ff26aaa.html</url>
     <content><![CDATA[<h4 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h4><p>在计算机科学中，锁是在执行多线程时用于强行限制资源访问的同步机制。主要是为了解决共享资源的安全问题。当不同的线程同时操作一块内存数据时，如果不加以限制，会发生数据错乱等异常问题。加锁，则每个线程在访问对应资源时，需要先获取锁信息，再根据信息决定是否可以访问。当一条线程访问特定资源时，使用锁会锁定该特定资源，此时其他线程无法访问该资源。当资源访问结束后，会恢复锁的状态，允许其他线程访问，这样就保证了在同一时间只有一个对象访问特定资源，实现数据安全。</p>
@@ -263,9 +227,9 @@
         <category>IOS开发</category>
       </categories>
       <tags>
-        <tag>ios</tag>
         <tag>ObjC</tag>
         <tag>Objective-C</tag>
+        <tag>ios</tag>
         <tag>线程锁</tag>
         <tag>Lock</tag>
       </tags>
@@ -413,9 +377,9 @@
         <category>IOS开发</category>
       </categories>
       <tags>
-        <tag>ios</tag>
         <tag>ObjC</tag>
         <tag>Objective-C</tag>
+        <tag>ios</tag>
         <tag>多线程</tag>
         <tag>multithreading</tag>
       </tags>
@@ -505,9 +469,9 @@
         <category>IOS开发</category>
       </categories>
       <tags>
-        <tag>ios</tag>
         <tag>ObjC</tag>
         <tag>Objective-C</tag>
+        <tag>ios</tag>
         <tag>gcd</tag>
         <tag>队列</tag>
         <tag>concurrent</tag>
@@ -659,9 +623,9 @@
         <category>IOS开发</category>
       </categories>
       <tags>
-        <tag>ios</tag>
         <tag>ObjC</tag>
         <tag>Objective-C</tag>
+        <tag>ios</tag>
         <tag>gcd</tag>
         <tag>队列</tag>
         <tag>concurrent</tag>
@@ -824,9 +788,9 @@
         <category>IOS开发</category>
       </categories>
       <tags>
-        <tag>ios</tag>
         <tag>ObjC</tag>
         <tag>Objective-C</tag>
+        <tag>ios</tag>
         <tag>gcd</tag>
         <tag>队列</tag>
         <tag>concurrent</tag>
@@ -981,10 +945,10 @@
       </categories>
       <tags>
         <tag>ObjC</tag>
-        <tag>Objective-C</tag>
         <tag>super</tag>
         <tag>self</tag>
         <tag>IOS</tag>
+        <tag>Objective-C</tag>
       </tags>
   </entry>
   <entry>
@@ -1064,8 +1028,8 @@
       </categories>
       <tags>
         <tag>ObjC</tag>
-        <tag>Objective-C</tag>
         <tag>IOS</tag>
+        <tag>Objective-C</tag>
         <tag>类簇</tag>
       </tags>
   </entry>
