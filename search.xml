@@ -10,7 +10,7 @@
 
 
 
-<h4 id="一、模块的使用"><a href="#一、模块的使用" class="headerlink" title="一、模块的使用"></a>一、模块的使用</h4><p>有点规模的工程一般都会有很多个文件和模块组成，甚至简单的程序也不会是单个文件组成的。在 Dart 中，每一个 <code>.dart</code> 文件就是一个模块，称为库。可以将不同的功能分装在不同的库中，以便在不同的文件中使用同一库的功能函数，减少代码量，可以使用 <code>imprt</code> 关键字进行文件导入。</p>
+<h4 id="一、模块的使用"><a href="#一、模块的使用" class="headerlink" title="一、模块的使用"></a>一、模块的使用</h4><p>有点规模的工程一般都会有很多个文件和模块组成，甚至简单的程序也不会是单个文件组成的。在 Dart 中，每一个 <code>.dart</code> 文件就是一个模块，称为库。可以将不同的功能分装在不同的库中，以便在不同的文件中使用同一库的功能函数，减少代码量，可以使用 <code>import</code> 关键字进行文件导入。</p>
 <p>在 Dart 中，库(模块)类型分为三种：自定义库、系统库(Dart 提供的库文件)、第三方库。</p>
 <h5 id="1-引入自定义库"><a href="#1-引入自定义库" class="headerlink" title="1. 引入自定义库"></a>1. 引入自定义库</h5><p>引入自定义库(自己创建的 <code>.dart</code> 文件)的方式如下，如在当前文件夹新建一个 common 文件夹为公共类文件夹，在文件夹中新建 <code>common.dart</code> 文件，内容如下：</p>
 <figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> description()&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="built_in">print</span>(<span class="string">"描述内容"</span>);</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
