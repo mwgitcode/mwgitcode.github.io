@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="一、运算符重载Dart 支持运算符重载，使用 operator 关键字，语法格式为：operation 运算符 ，如下，重载加法运算符：">
+<meta name="description" content="一、运算符重载Dart 支持运算符重载，使用 operator 关键字，语法格式为：operator 运算符 ，如下，重载加法运算符：">
 <meta name="keywords" content="Flutter,Dart,hybrid,Native">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Flutter]flutter基础之Dart语言基础(四)">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;dc3f0782.html">
 <meta property="og:site_name" content="MW技术栈">
-<meta property="og:description" content="一、运算符重载Dart 支持运算符重载，使用 operator 关键字，语法格式为：operation 运算符 ，如下，重载加法运算符：">
+<meta property="og:description" content="一、运算符重载Dart 支持运算符重载，使用 operator 关键字，语法格式为：operator 运算符 ，如下，重载加法运算符：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;dc3f0782&#x2F;2020224_12_15.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;dc3f0782&#x2F;2020224_12_15.jpg">
-<meta property="og:updated_time" content="2020-02-25T08:40:18.300Z">
+<meta property="og:updated_time" content="2020-02-25T08:50:24.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;dc3f0782&#x2F;2020224_12_15.png">
 
@@ -399,7 +399,7 @@
       
 
       
-        <h4 id="一、运算符重载"><a href="#一、运算符重载" class="headerlink" title="一、运算符重载"></a>一、运算符重载</h4><p>Dart 支持运算符重载，使用 <code>operator</code> 关键字，语法格式为：<code>operation 运算符</code> ，如下，重载加法运算符：</p>
+        <h4 id="一、运算符重载"><a href="#一、运算符重载" class="headerlink" title="一、运算符重载"></a>一、运算符重载</h4><p>Dart 支持运算符重载，使用 <code>operator</code> 关键字，语法格式为：<code>operator 运算符</code> ，如下，重载加法运算符：</p>
 <a id="more"></a>
 
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">main()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  Vector v1 = Vector(<span class="number">1</span>, <span class="number">2</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  Vector v2 = Vector(<span class="number">2</span>, <span class="number">3</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  Vector v3 = v1    + v2;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">print</span>(<span class="string">"<span class="subst">$&#123;v3.x&#125;</span> <span class="subst">$&#123;v3.y&#125;</span>"</span>);   <span class="comment">//输出 3 5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> x, y;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  Vector(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  Vector <span class="keyword">operator</span> +(Vector v) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> Vector(x+v.x, y+v.y);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
