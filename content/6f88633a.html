@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ios,swift,c,c++" />
+  <meta name="keywords" content="Flutter,Dart,hybrid,Native,Widget," />
 
 
 
@@ -79,15 +79,23 @@
 
 
 
-<meta name="description" content="技术分析，分享，记录，学习">
-<meta name="keywords" content="ios,swift">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MW技术栈">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;page&#x2F;2&#x2F;index.html">
+<meta name="description" content="一、概述关于 Flutter SDK的下载及安装、环境配置等这里不做说明，有需要的朋友可以在网上找或直接在 Flutter 的官网查看即可，说的都很详细明白。从本章起，将介绍 Flutter 的基础组件知识，对每个部件做详细的使用说明，从 main 入口函数开始讲解，在学习的过程中理解如何使用。以后代码所使用的开发工具为 Android Studio ，模拟器使用的是 Iphone 模拟器，操作系">
+<meta name="keywords" content="Flutter,Dart,hybrid,Native,Widget">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Flutter]flutter基础工程创建及结构介绍">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a.html">
 <meta property="og:site_name" content="MW技术栈">
-<meta property="og:description" content="技术分析，分享，记录，学习">
+<meta property="og:description" content="一、概述关于 Flutter SDK的下载及安装、环境配置等这里不做说明，有需要的朋友可以在网上找或直接在 Flutter 的官网查看即可，说的都很详细明白。从本章起，将介绍 Flutter 的基础组件知识，对每个部件做详细的使用说明，从 main 入口函数开始讲解，在学习的过程中理解如何使用。以后代码所使用的开发工具为 Android Studio ，模拟器使用的是 Iphone 模拟器，操作系">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a&#x2F;2020226810.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a&#x2F;2020226813.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a&#x2F;2020226826.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a&#x2F;2020226855.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a&#x2F;2020226910.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a&#x2F;2020226915.png">
+<meta property="og:updated_time" content="2020-02-26T15:00:18.901Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;6f88633a&#x2F;2020226810.png">
 
 
 
@@ -117,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mwpush.com/page/2/"/>
+  <link rel="canonical" href="http://www.mwpush.com/content/6f88633a.html"/>
 
 
 
 
 
-  <title>MW技术栈</title>
+  <title>[Flutter]flutter基础工程创建及结构介绍 | MW技术栈</title>
   
 
 
@@ -142,8 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,9 +288,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -296,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/d771b58d.html">
+    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/6f88633a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陌问.MW">
@@ -313,9 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/d771b58d.html" itemprop="url">[IOS.OC]GCD的使用精解(-)</a></h1>
+          <h1 class="post-title" itemprop="name headline">[Flutter]flutter基础工程创建及结构介绍</h1>
         
 
         <div class="post-meta">
@@ -327,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-18T15:30:21+08:00">
-                2019-12-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-26T22:57:07+08:00">
+                2020-02-26
               </time>
             
 
@@ -361,8 +366,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
+                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/Flutter%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">Flutter开发</span>
                   </a>
                 </span>
 
@@ -398,17 +403,67 @@
       
 
       
-        
-          <h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p><code>GCD(Grand Central Dispatch)</code>，大中枢派发，是一套基于C语言的多线程开发框架，它提供了一个易用的抽象层，使开发者不需要处理底层的线程管理就可以充分利用系统的多核特性，可以自动平衡系统资源分配方式，提高系统资源的利用率，是异步执行任务的技术之一。                                                                          </p>
-<p><code>GCD API</code>的核心概念是调度队列，对线程的操作实际上是由调度队列完成的，开发者只需将任务添加到调度队列即可，系统负责线程的创建、管理，提交给调度队列的任务会在完全受系统管理的线程池上执行。因为线程的管理由系统执行，系统会根据系统占用资源相对合理分配资源，比传统的线程提高了效率。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/d771b58d.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h4 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h4><p>关于 Flutter SDK的下载及安装、环境配置等这里不做说明，有需要的朋友可以在网上找或直接在 Flutter 的官网查看即可，说的都很详细明白。从本章起，将介绍 Flutter 的基础组件知识，对每个部件做详细的使用说明，从 <code>main</code> 入口函数开始讲解，在学习的过程中理解如何使用。以后代码所使用的开发工具为 Android Studio ，模拟器使用的是 Iphone 模拟器，操作系统为 Mac 。</p>
+<a id="more"></a>
+
+<h4 id="二、-Flutter-项目创建及工程目录结构"><a href="#二、-Flutter-项目创建及工程目录结构" class="headerlink" title="二、 Flutter 项目创建及工程目录结构"></a>二、 Flutter 项目创建及工程目录结构</h4><p>当开发环境配置好以后，可以通过在命令行(终端)中输入 <code>flutter --version</code> 命令查看 Flutter 版本，正常显示则 Flutter SDK 环境配置完成。可以使用 <code>flutter doctor</code> 命令查看开发环境是否配置完成，此命令会检查当前设备上安装的可用开发工具是否完成了对 Flutter 开发的配置支持。配置完成输出如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Doctor summary (to see all details, run flutter doctor -v):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">[✓] Flutter (Channel stable, v1<span class="variable">.12</span><span class="variable">.13</span>+hotfix<span class="variable">.8</span>, on Mac OS X <span class="number">10</span><span class="variable">.15</span><span class="variable">.3</span> <span class="number">19</span>D76, locale zh-Hans-CN)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">[✓] Android toolchain - develop <span class="keyword">for</span> Android devices (Android SDK version <span class="number">29</span><span class="variable">.0</span><span class="variable">.3</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[✓] Xcode - develop <span class="keyword">for</span> iOS <span class="keyword">and</span> macOS (Xcode <span class="number">11</span><span class="variable">.3</span><span class="variable">.1</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[✓] Android Studio (version <span class="number">3</span><span class="variable">.5</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[✓] VS Code (version <span class="number">1</span><span class="variable">.42</span><span class="variable">.1</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[✓] Connected device (<span class="number">1</span> available)</span></pre></td></tr></table></figure>
+
+<p>然后可以通过两种方式创建 Flutter 项目：命令行方式创建和开发工具创建。</p>
+<h5 id="1-命令行方式创建"><a href="#1-命令行方式创建" class="headerlink" title="1. 命令行方式创建"></a>1. 命令行方式创建</h5><p>首先 <code>cd</code> 到项目需要创建的位置，比如桌面的 <code>project</code> 文件夹，如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> desktop/project</span></pre></td></tr></table></figure>
+
+<p>使用 <code>flutter create 项目名称</code> 创建项目。其中项目名称可以使用英文、数字、下划线，英文必须全部为小写，如有多个英文单词组成，可以使用下划线分隔，不可以以数字开头，不可使用单纯的 Dart 保留字。 正确使用如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">flutter create study_flutter_demo</span></pre></td></tr></table></figure>
+
+<p>成功创建工程最后会有如下输出：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">All done!</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">[✓] Flutter: is fully installed. (Channel stable, v1<span class="variable">.12</span><span class="variable">.13</span>+hotfix<span class="variable">.8</span>, on Mac OS X <span class="number">10</span><span class="variable">.15</span><span class="variable">.3</span> <span class="number">19</span>D76, locale zh-Hans-CN)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">[✓] Android toolchain - develop <span class="keyword">for</span> Android devices: is fully installed. (Android SDK version <span class="number">29</span><span class="variable">.0</span><span class="variable">.3</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[✓] Xcode - develop <span class="keyword">for</span> iOS <span class="keyword">and</span> macOS: is fully installed. (Xcode <span class="number">11</span><span class="variable">.3</span><span class="variable">.1</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[✓] Android Studio: is fully installed. (version <span class="number">3</span><span class="variable">.5</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[✓] VS Code: is fully installed. (version <span class="number">1</span><span class="variable">.42</span><span class="variable">.1</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[✓] Connected device: is fully installed. (<span class="number">1</span> available)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">In order to run your application, <span class="keyword">type</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  $ cd study_flutter_demo</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  $ flutter run</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">Your application code is in study_flutter_demo/lib/main<span class="variable">.dart</span>.</span></pre></td></tr></table></figure>
+
+<p>根据提示，可以 <code>cd</code> 到项目文件夹，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">cd study_flutter_demo</span></pre></td></tr></table></figure>
+
+<p>使用 <code>flutter run</code> 命令运行工程。在使用此命令运行工程时，设备中应有连接的真机或打开的模拟器，可以使用 <code>flutter devices</code> 命令查看当前可用的运行设备，当没有可用运行设备时，输出如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">No devices detected.</span></pre></td></tr></table></figure>
+
+<p>可以通过数据线连接真机设备，也可以通过如下命令打开 ios 模拟器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">open -a Simulator</span></pre></td></tr></table></figure>
+
+<p>Android 模拟器及真机等配置可以在官网查看：<a href="https://flutter.dev/docs/get-started/install/macos#install-android-studio" target="_blank" rel="noopener">https://flutter.dev/docs/get-started/install/macos#install-android-studio</a> 。ios 真机运行需要配置开发者证书，可以在官网查看具体步骤，这里只对模拟器测试进行说明。</p>
+<p>当有多个移动设备(包括真机和模拟器)处于可用状态时，使用 <code>flutter run</code> 命令会提示需要指定设备，有如下提示输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">More than one device connected; please specify a device with the '-d &lt;deviceId&gt;' flag, or use '-d all' to act on all devices.</span></pre></td></tr></table></figure>
+
+<p>在此输出下面会列出可用的设备信息(设备名称，设备id，系统，版本)，此时可以使用如下命令指定运行设备：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">flutter run -d 设备id</span></pre></td></tr></table></figure>
+
+<p>也使用使用 <code>flutter run -d all</code> 命令在所有可用设备上同时运行。以下以ios模拟器运行为例，成功运行后有如下输出：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Launching lib/main<span class="variable">.dart</span> on iPhone <span class="number">11</span> in debug mode...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Running Xcode build...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"> ├─Assembling Flutter resources...                           <span class="number">2</span><span class="variable">.8s</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"> └─Compiling, linking <span class="keyword">and</span> signing...                         <span class="number">6</span><span class="variable">.6s</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">Xcode build done.                                           <span class="number">11</span><span class="variable">.9s</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Syncing files to device iPhone <span class="number">11</span>...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"> <span class="number">5</span>,<span class="number">788</span>ms (!)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">🔥  To hot reload changes <span class="keyword">while</span> running, press <span class="string">"r"</span>. To hot restart (<span class="keyword">and</span> rebuild state), press <span class="string">"R"</span>.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">An Observatory debugger <span class="keyword">and</span> profiler on iPhone <span class="number">11</span> is available at: http:<span class="comment">//127.0.0.1:61603/oHZEjqUKaf0=/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">For a more detailed help message, press <span class="string">"h"</span>. To detach, press <span class="string">"d"</span>; to quit, press <span class="string">"q"</span>.</span></pre></td></tr></table></figure>
+
+<p>根据提示，可以使用小写 “r” 键进行热重载，大写 “R” 进行热重启。可以根据提示的网址在浏览器中打开，查看调试器和分析信息。 “q” 键退出。</p>
+<p>通过命令行创建的工程成功创建后，可以通过 Android Studio 开发工具的 “Open an existing Android Studio project” 选项打开即可进行代表编辑，或将工程文件夹直接拖动到相对应的开发工具即可打开。</p>
+<h5 id="2-开发工具创建"><a href="#2-开发工具创建" class="headerlink" title="2. 开发工具创建"></a>2. 开发工具创建</h5><p>Android Studio 开发工具安装并配置好后，打开界面如下，选择 “Start a new Flutter project” :</p>
+<p><img src="/content/6f88633a/2020226810.png" alt="2020226810"></p>
+<p>选择创建 “Flutter Application” ，点击 “Next”：</p>
+<p><img src="/content/6f88633a/2020226813.jpg" alt="2020226813"></p>
+<p>然后填写项目名称，选择存放路径，Flutter SDK选项在Flutter SDK环境变量配置好的情况下自动填写，如下图：</p>
+<p><img src="/content/6f88633a/2020226826.jpg" alt="2020226826"></p>
+<p>设置公司反向域名和勾选是否支持 Kotlin 和 Swift 语言，如原生开发用到勾选即可，如下图：</p>
+<p><img src="/content/6f88633a/2020226855.jpg" alt="2020226855"></p>
+<p>最后点击 “Finish” 即可完成工程创建。运行结果如下图：</p>
+<img src="/content/6f88633a/2020226910.jpg" alt="截屏2020-02-26下午9.07.25" style="zoom: 33%;">
+
+
+
+<h5 id="3-工程目录结构"><a href="#3-工程目录结构" class="headerlink" title="3. 工程目录结构"></a>3. 工程目录结构</h5><p>新建的工程目录如下图：</p>
+<p><img src="/content/6f88633a/2020226915.png" alt="2020226915"></p>
+<p>其中，开发 Flutter 工程代码主要关心的文件为：lib文件夹和 pubspec.yaml 配置文件。</p>
+<p>lib文件夹：工程代码文件夹，里面有一个 main.dart 文件，为工程的入口文件，默认创建的工程包含了默认的demo代码。我们自己创建的代码文件也存放在lib文件夹中。</p>
+<p>pubspec.yaml：工程的配置文件，用来管理第三方依赖和静态资源配置。</p>
+<p>android文件夹：Flutter 工程在 Android 平台运行的相关代码。</p>
+<p>ios文件夹：Flutter 工程在 ios 平台运行的相关代码。</p>
+<p>build文件夹：编译后的 Android 或 iOS 包。</p>
+<p>test文件夹：存放测试代码。</p>
+<p>其他文件暂时不用考虑，有兴趣的可以参考官方文档：<a href="https://dart.dev/guides/libraries/private-files" target="_blank" rel="noopener">https://dart.dev/guides/libraries/private-files</a> 。</p>
+
       
     </div>
     
@@ -416,346 +471,77 @@
     
 
     
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wchatq.png" alt="陌问.MW wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号，及时获取知识！</div>
+</div>
+
+      </div>
+    
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    陌问.MW
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.mwpush.com/content/6f88633a.html" title="[Flutter]flutter基础工程创建及结构介绍">http://www.mwpush.com/content/6f88633a.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/edab7fec.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/edab7fec.html" itemprop="url">关于串行、并发、并行等的说明</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T20:27:32+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">程序设计</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Flutter/" rel="tag"># Flutter</a>
           
-
+            <a href="/tags/Dart/" rel="tag"># Dart</a>
           
-            
+            <a href="/tags/hybrid/" rel="tag"># hybrid</a>
           
-
+            <a href="/tags/Native/" rel="tag"># Native</a>
           
+            <a href="/tags/Widget/" rel="tag"># Widget</a>
           
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h4 id="一、概念术语"><a href="#一、概念术语" class="headerlink" title="一、概念术语"></a>一、概念术语</h4><ol>
-<li><p>进程 (<code>process</code>)</p>
-<p>系统中正在运行的一个程序的实例(即一个正在运行的可执行文件)，具有一定的独立功能，是线程的容器</p>
-</li>
-</ol>
-<ol start="2">
-<li><p>线程 (<code>thread</code>)</p>
-<p>线程是进程执行的最小单位，一个进程中至少包含一个线程(主线程)，进程中任务都在线程中执行(主线程或子线程)。是代码独立执行的路径。</p></li></ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/edab7fec.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/content/dc3f0782.html" rel="next" title="[Flutter]flutter基础之Dart语言基础(四)">
+                <i class="fa fa-chevron-left"></i> [Flutter]flutter基础之Dart语言基础(四)
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/3b516ae7.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/3b516ae7.html" itemprop="url">[IOS.OC]self与super调用本质分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-01T23:07:25+08:00">
-                2019-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">移动开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h4 id="一、self-基本说明"><a href="#一、self-基本说明" class="headerlink" title="一、self 基本说明"></a>一、self 基本说明</h4><p>在日常开发中，我们经常使用到<code>self</code>关键字，比如，访问属性，调用实例方法等。那么<code>self</code>到底指的是什么？我们来看一下官方文档的解释和定义：</p>
-<blockquote>
-<p>Returns the receiver.   //返回接收器</p>
-</blockquote>
-<p>在看一下<code>NSObject</code>中关于<code>self</code>的一些说法：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/3b516ae7.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -765,172 +551,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/b7bda735.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陌问.MW">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MW技术栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/content/b7bda735.html" itemprop="url">[IOS.OC]关于类簇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T07:00:08+08:00">
-                2019-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">移动开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  >
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="一、引语"><a href="#一、引语" class="headerlink" title="一、引语"></a>一、引语</h4><p>首先新建基于 Single View App的工程，在<code>ViewController.m</code>文件中添加如下代码(1-1)：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSString</span> * string1 = [[<span class="built_in">NSString</span> alloc] init];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"string1 length:%lu"</span>, string1.length);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/content/b7bda735.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -938,6 +563,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -958,8 +587,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1023,6 +661,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、概述"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、-Flutter-项目创建及工程目录结构"><span class="nav-number">2.</span> <span class="nav-text">二、 Flutter 项目创建及工程目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-命令行方式创建"><span class="nav-number">2.1.</span> <span class="nav-text">1. 命令行方式创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-开发工具创建"><span class="nav-number">2.2.</span> <span class="nav-text">2. 开发工具创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-工程目录结构"><span class="nav-number">2.3.</span> <span class="nav-text">3. 工程目录结构</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1151,6 +805,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
