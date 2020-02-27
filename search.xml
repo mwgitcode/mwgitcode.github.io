@@ -58,11 +58,19 @@
 <p>其中，开发 Flutter 工程代码主要关心的文件为：lib文件夹和 pubspec.yaml 配置文件。</p>
 <p>lib文件夹：工程代码文件夹，里面有一个 main.dart 文件，为工程的入口文件，默认创建的工程包含了默认的demo代码。我们自己创建的代码文件也存放在lib文件夹中。</p>
 <p>pubspec.yaml：工程的配置文件，用来管理第三方依赖和静态资源配置。</p>
-<p>android文件夹：Flutter 工程在 Android 平台运行的相关代码。</p>
-<p>ios文件夹：Flutter 工程在 ios 平台运行的相关代码。</p>
-<p>build文件夹：编译后的 Android 或 iOS 包。</p>
-<p>test文件夹：存放测试代码。</p>
-<p>其他文件暂时不用考虑，有兴趣的可以参考官方文档：<a href="https://dart.dev/guides/libraries/private-files" target="_blank" rel="noopener">https://dart.dev/guides/libraries/private-files</a> 。</p>
+<p>android 文件夹：Flutter 工程在 Android 平台运行的相关代码。</p>
+<p>ios 文件夹：Flutter 工程在 ios 平台运行的相关代码。</p>
+<p>build 文件夹：编译后的 Android 或 iOS 包。</p>
+<p>test 文件夹：存放测试代码。</p>
+<p>以点 <code>.</code> 开头的文件或文件夹为隐藏文件夹，以下是隐藏文件的说明：</p>
+<p>.idea 文件夹：存储了 Android Studio 的配置信息，因为 Android Studio 是基于 Intelli IDEA IDEA 开发，因此有名为这个的文件夹，可以忽略此文件夹。</p>
+<p>.gitignore：里面说明了Git版本控制要忽略的文件。</p>
+<p>.metadata：Android Studio 用来跟踪当前项目的数据，可以忽略。</p>
+<p>.packages：Flutter 带有包管理器，用于管理项目中的依赖项，此文件用于跟踪项目中的依赖关系，可以忽略。</p>
+<p>pubspec.lock：Pub内部使用的文件，与pubspec.yaml 相同，不能编辑此文件，忽略即可。</p>
+<p>study_flutter_demo.iml：Android Studio 的项目配置文件，可以忽略。</p>
+<p>README.md：自述文件。</p>
+<p>有兴趣的可以参考官方文档：<a href="https://dart.dev/guides/libraries/private-files" target="_blank" rel="noopener">https://dart.dev/guides/libraries/private-files</a> 。</p>
 ]]></content>
       <categories>
         <category>移动开发</category>
