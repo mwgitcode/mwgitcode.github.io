@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Flutter,Dart,hybrid,Native,Widget," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、Image WidgetImage Widget 是 Flutter 中用来显示图片的小部件。支持以下图像格式：JPEG，PNG，GIF，动画GIF，WebP，动画WebP，BMP和WBMP 。 Image Widget 提供了以下构造函数用于创建图像：">
+<meta name="keywords" content="Flutter,Dart,hybrid,Native,Widget">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Flutter]flutter基础之组件基础(三)">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d.html">
+<meta property="og:site_name" content="MW技术栈">
+<meta property="og:description" content="一、Image WidgetImage Widget 是 Flutter 中用来显示图片的小部件。支持以下图像格式：JPEG，PNG，GIF，动画GIF，WebP，动画WebP，BMP和WBMP 。 Image Widget 提供了以下构造函数用于创建图像：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;202035639.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;202035649.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;202035836.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;202035846.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;202035922.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;centerSlice.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;2020351025.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;2020351027.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;202036542.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;2020361109.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;2020361135.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;2020361139.jpg">
+<meta property="og:updated_time" content="2020-03-07T03:28:20.484Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;f0eb3e6d&#x2F;202035639.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.mwpush.com/content/f0eb3e6d.html"/>
+
+
+
+
+
+  <title>[Flutter]flutter基础之组件基础(三) | MW技术栈</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MW技术栈</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">精益技术，完善自我</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            
+            <a href="javascript:;" target="_blank" rel="noopener" onclick="return false;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.mwpush.com/content/f0eb3e6d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陌问.MW">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MW技术栈">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[Flutter]flutter基础之组件基础(三)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-07T11:24:36+08:00">
+                2020-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">移动开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  >
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/Flutter%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">Flutter开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一、Image-Widget"><a href="#一、Image-Widget" class="headerlink" title="一、Image Widget"></a>一、Image Widget</h4><p><code>Image</code> Widget 是 Flutter 中用来显示图片的小部件。支持以下图像格式：JPEG，PNG，GIF，动画GIF，WebP，动画WebP，BMP和WBMP 。 <code>Image</code> Widget 提供了以下构造函数用于创建图像：</p>
+<a id="more"></a>
+
+<p><code>Image()</code> ，用于从 <code>ImageProvider</code> 获取图像。</p>
+<p><code>Image.asset()</code> ，从 <code>AssetBundle</code> 获取图像。</p>
+<p><code>Image.network</code> ，从URL获取图像。</p>
+<p><code>Image.file</code> ，从本地文件获取图像。</p>
+<p><code>Image.memory</code> ，从 <code>Uint8List</code> 获取图像。</p>
+<h5 id="1-Image-构造方法"><a href="#1-Image-构造方法" class="headerlink" title="1. Image() 构造方法"></a>1. Image() 构造方法</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Image(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  Key key,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//ImageProvider类型必传参数，为要显示的图像</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="meta">@required</span> <span class="keyword">this</span>.image,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//ImageFrameBuilder类型可选命名参数，是一个Function，返回一个代表该图像的Widget</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.frameBuilder,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//ImageLoadingBuilder类型可选命名参数，用于指定在图像加载过程中向用户展示的Widget</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.loadingBuilder,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//String类型可选命名参数，为图像的语义标签</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.semanticLabel,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//bool类型可选命名参数，是否从语义中排除此图像</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.excludeFromSemantics = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//double类型可选命名参数，图像要显示的宽度</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.width,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//double类型可选命名参数，图像要显示的高度</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.height,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//Color类型可选命名参数，如果不为null，则使用colorBlendMode将此颜色与每个图像像素混合</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.color,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//BlendMode类型可选命名参数，用于设置color与图像混合的模式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.colorBlendMode,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//BoxFit类型可选命名参数，用于设置图像的填充模式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.fit,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//AlignmentGeometry类型可选命名参数，设置图像的对齐模式，其为抽象类，使用其子类Alignment</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.alignment = Alignment.center,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//ImageRepeat类型可选命名参数，用于设置布局中图像的重复模式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.repeat = ImageRepeat.noRepeat,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//Rect类型可选命名参数，用于设置当一个图片被拉伸时的范围</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.centerSlice,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//bool类型可选命名参数，用于设置是否以TextDirection相同的方向来绘制图像</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.matchTextDirection = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//bool类型可选命名参数，用于设置在图像提供者更改时，是否继续显示旧图像。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//true为显示旧图像，false为暂时不显示任何图像</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.gaplessPlayback = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//FilterQuality类型可选命名参数，用于设置图片的过滤质量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.filterQuality = FilterQuality.low,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr></table></figure>
+
+<p><code>Image()</code> 构造方法的必传参数类型为 <code>ImageProvider</code> ，是一个抽象类，不能直接实例化。其有5个直接子类分别为：<code>AssetBundleImageProvider</code> ， <code>FileImage</code> ，<code>MemoryImage</code> ，<code>NetworkImage</code> ，<code>ResizeImage</code> ，可以直接使用。这几个类，是根据不同的图片源选择对应的加载方式，使用方式如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  runApp(MyApp());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="meta">@override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  Widget build(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> MaterialApp(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      home: Scaffold(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        appBar: AppBar(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">          title: Text(<span class="string">"Widget基础"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        body: studyWidget(context),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">      ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//示例代码只修改此函数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Image(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    image: NetworkImage(<span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-Image-network-构造方法"><a href="#2-Image-network-构造方法" class="headerlink" title="2. Image.network() 构造方法"></a>2. Image.network() 构造方法</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Image.network(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//String类型必传参数，用于设置图片的网络URL地址</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">String</span> src, &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  Key key,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//double类型可选命名参数，图像的缩放级别，值越大图片越小</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">double</span> scale = <span class="number">1.0</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.frameBuilder,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.loadingBuilder,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.semanticLabel,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.excludeFromSemantics = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.width,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.height,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.color,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.colorBlendMode,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.fit,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.alignment = Alignment.center,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.repeat = ImageRepeat.noRepeat,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.centerSlice,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.matchTextDirection = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.gaplessPlayback = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.filterQuality = FilterQuality.low,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//Map&lt;String, String&gt;类型可选命名参数，用于发送带有图像请求的自定义的HTTP头  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt; headers,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//int类型可选命名参数，用于减少ImageCache的内存使用量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheWidth,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//int类型可选命名参数，用于减少ImageCache的内存使用量  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheHeight,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">&#125;) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//以上未注释的参数与Image()构造方法含义相同</span></span></pre></td></tr></table></figure>
+
+<p>本构造方法是当从网络加载图片时使用，使用方式如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Image.network(<span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>在创建 <code>Image</code> Widget 时，最好指定其大小，或者放在能严格限制其布局的上下文中，否则图像尺寸会随时图像的加载而改变。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Image.network(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">200</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">200</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="/content/f0eb3e6d/202035639.jpg" alt="202035639"></p>
+<p>一般一个 <code>Image</code> Widget 都是放在特定的 Widget 中的，这样可以限制其展示范围，也可以有良好的布局。其很多属性也依赖于外围 Widget。这里使用 <code>Container</code> Widget ，如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">200</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.network(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      width: <span class="number">100</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      height: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="/content/f0eb3e6d/202035649.jpg" alt="202035649"></p>
+<p>从上图可以发现，当 <code>Image</code> Widget 放在一个布局组件中以后，其 <code>width</code> 和 <code>height</code> 属性就不起作用了，其在保持原图比例的情况下会尽量占满其父级 Widget ，且位于中间显示。我们可以设置其填充属性做更改，如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">200</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.network(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      fit: BoxFit.fill,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p><code>BoxFit</code> 是一个枚举类型，如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> BoxFit &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">/// <span class="markdown">完全填充目标容器，如目标容器比例与图比例不同，图会被拉伸</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">![](https://flutter.github.io/assets-for-api-docs/assets/painting/box<span class="emphasis">_fit_</span>fill.png)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  fill,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">/// <span class="markdown">尽可能大的展示完整图片并且会保持原图比例，所以对于矩形来说，总会有对应的面被对齐容器边缘，上下、左右</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">![](https://flutter.github.io/assets-for-api-docs/assets/painting/box<span class="emphasis">_fit_</span>contain.png)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  contain,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">保持原图比例的情况下尽可能小的展示图片，但是会在覆盖整个容器的情况下尽可能小</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">![](https://flutter.github.io/assets-for-api-docs/assets/painting/box<span class="emphasis">_fit_</span>cover.png)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  cover,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">保持原图比例的情况下填充目标容器宽度，上下如果溢出会被裁掉</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">![](https://flutter.github.io/assets-for-api-docs/assets/painting/box<span class="emphasis">_fit_</span>fitWidth.png)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  fitWidth,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">保持原图比例的情况下填充目标容器高度，左右如果溢出会被裁掉</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">![](https://flutter.github.io/assets-for-api-docs/assets/painting/box<span class="emphasis">_fit_</span>fitHeight.png)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  fitHeight,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">在目标荣内展示原图，不对宽高做更改。以原图的大小居中显示，溢出部分被裁掉</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">![](https://flutter.github.io/assets-for-api-docs/assets/painting/box<span class="emphasis">_fit_</span>none.png)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  none,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">在目标容器居中对齐原图。如果需要，将源文件向下缩放，以确保源文件适合该框</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// <span class="markdown">![](https://flutter.github.io/assets-for-api-docs/assets/painting/box<span class="emphasis">_fit_</span>scaleDown.png)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  scaleDown,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>上面对应的都有官方的样式图片地址，可自行查看。</p>
+<p>图像的对齐模式是相对于父级容器来说的，实现如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.network(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      alignment: Alignment.centerRight,  <span class="comment">//中心靠右对齐</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>效果如下图：</p>
+<p><img src="/content/f0eb3e6d/202035836.jpg" alt="202035836"></p>
+<p>也可以设置其他对齐方式，可自行查看，都比较简单，选择对应的选项就可以。</p>
+<p>图像的重复模式，就是当一个图像并不能完全占满父级容器时，以什么样的模式进行填充， 如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.network(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      repeat: ImageRepeat.repeatY,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>以上是按照Y轴重复的模式填充，效果如下：</p>
+<p><img src="/content/f0eb3e6d/202035846.jpg" alt="202035846"></p>
+<p>也可以按照X轴填充，同时按照X，Y轴填充等。</p>
+<p>填充颜色，其中的 <code>color</code> 属性，当单独设置颜色属性时，就是绘制图片的颜色，图片内容将被覆盖。可以选择颜色与原图的混合模式进行设置，如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.network(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"http://www.mwpush.com/uploads/avatar.png"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      color: Colors.red,   <span class="comment">//设置源颜色</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      colorBlendMode: BlendMode.difference,   <span class="comment">//设置混合模式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="/content/f0eb3e6d/202035922.jpg" alt="202035922"></p>
+<p>更多混合效果及方法，官网查看地址：<a href="https://api.flutter.dev/flutter/dart-ui/BlendMode-class.html" target="_blank" rel="noopener">https://api.flutter.dev/flutter/dart-ui/BlendMode-class.html</a></p>
+<p>对于图片拉伸属性 <code>centerSlice</code> ，其值为一个 <code>Rect</code> ，我们通过一张图片的设置来说明这个参数的设置。这里准备了一张原图，如下：</p>
+<p><img src="/content/f0eb3e6d/centerSlice.jpg" alt="centerSlice"></p>
+<p>这张图被分割线分成了9个矩形，<code>centerSlice</code> 设置的矩形区域为标记为5的矩形区域。这里的图片宽度为1000 ，高度为500 ，区域 1，3，7，9 的宽高均为100 ，所以可以得出区域 5 的左上角的起始坐标为100，100，宽度为800 ，高度为 300 。 这里使用了加载本地 AssetBundle 的文件方式加载的图片，下面会进行讲解。这里先展示原图的代码，代码如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.asset(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"images/centerSlice.jpg"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      scale: <span class="number">3</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="/content/f0eb3e6d/2020351025.jpg" alt="2020351025"></p>
+<p>由于图片太大，为了在 <code>Container</code> 边缘留有空间，使用了缩放属性 <code>scale</code> 。</p>
+<p>设置拉伸属性代码如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.asset(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"images/centerSlice.jpg"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      scale: <span class="number">3</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      centerSlice: Rect.fromLTWH(<span class="number">100</span>, <span class="number">100</span>, <span class="number">800</span>, <span class="number">300</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="/content/f0eb3e6d/2020351027.jpg" alt="2020351027"></p>
+<p>这里我们使用了 <code>Rect.fromLTWH()</code> 构造方法创建 <code>Rect</code> 。其参数依次分别为距离左侧的距离，距离顶部的距离，宽度，高度。通过前两个属性，我们可以得知，在本图中，L和T属性能确定矩形的起始点就是图中区域 1 的 右下角，跨度高度分别为上面计算的800和300，所以可以看出，除了区域 1，3，7，9 外，都会被拉伸。区域 2 和 区域 8 是横向拉伸，区域 4 和 区域 6 是纵向拉伸，区域 5 是横向纵向都拉伸。</p>
+<h5 id="3-Image-file-构造方法"><a href="#3-Image-file-构造方法" class="headerlink" title="3. Image.file() 构造方法"></a>3. Image.file() 构造方法</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Image.file(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//File类型必传参数，从File获取ImageStream</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  File file, &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  Key key,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">double</span> scale = <span class="number">1.0</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.frameBuilder,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.semanticLabel,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.excludeFromSemantics = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.width,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.height,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.color,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.colorBlendMode,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.fit,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.alignment = Alignment.center,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.repeat = ImageRepeat.noRepeat,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.centerSlice,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.matchTextDirection = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.gaplessPlayback = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.filterQuality = FilterQuality.low,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheWidth,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheHeight,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//以上未注释的参数与Image()构造方法含义相同</span></span></pre></td></tr></table></figure>
+
+<p><code>Image.file()</code> 是加载本地文件时使用，必传为 <code>File</code> 类型，使用 <code>File</code> 需要引入 <code>dart:io</code> 。使用方式如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.file(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      File(<span class="string">"/path/images/avatar.png"</span>),   <span class="comment">//path 为您的图片本地路径</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<h5 id="4-Image-asset-构造方法"><a href="#4-Image-asset-构造方法" class="headerlink" title="4. Image.asset() 构造方法"></a>4. Image.asset() 构造方法</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Image.asset(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//String类型必传参数，从</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">String</span> name, &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  Key key,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  AssetBundle bundle,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.frameBuilder,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.semanticLabel,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.excludeFromSemantics = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">double</span> scale,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.width,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.height,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.color,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.colorBlendMode,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.fit,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.alignment = Alignment.center,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.repeat = ImageRepeat.noRepeat,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.centerSlice,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.matchTextDirection = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.gaplessPlayback = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">String</span> package,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.filterQuality = FilterQuality.low,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheWidth,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheHeight,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//以上未注释的参数与Image()构造方法含义相同</span></span></pre></td></tr></table></figure>
+
+<p><code>Image.asset()</code> 用来加载应用本身的资源图片。使用此方式时，需要在 <code>pubspec.yaml</code> 配置文件中对资源做配置。比如，在项目的根目录中新建 images 文件夹，并在其中添加图片 avatar.png ，需要在 <code>pubspec.yaml</code> 文件中有如下配置： </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">flutter:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">assets:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="bullet">-</span> <span class="string">images/avatar.png</span></span></pre></td></tr></table></figure>
+
+<p>在默认创建的 <code>pubspec.yaml</code> 中有 <code>assets</code> 的配置示例，为被注释状态，在42行左右，进行修改即可。</p>
+<p>使用方式如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.asset(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"images/avatar.png"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>在配置 <code>pubspec.yaml</code> 时，要注意 YAML 的语法规则，对齐方式很重要。</p>
+<p>为了应对不同设备分辨率，可以同时配备一张图片的多张不同分辨率图片来对不同的显示做匹配。在 Flutter 中做如下处理。如提供2倍图与3倍图：</p>
+<ol>
+<li><p>创建不同比例文件夹，在 images文件夹中新建名为 <code>2x</code> 和 <code>3x</code> 的文件夹。其他比例同样操作。</p>
+</li>
+<li><p>将对应的2倍图放入 <code>2x</code> 文件，3倍图放入 <code>3x</code> 文件夹，同一图片的不同分辨率的图片名称格式要相同。如下图：</p>
+<p><img src="/content/f0eb3e6d/202036542.jpg" alt="202036542"></p>
+</li>
+<li><p>在 <code>pubspec.yaml</code> 配置文件中配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">flutter:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">assets:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="bullet">-</span> <span class="string">images/avatar.png</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="bullet">-</span> <span class="string">images/2x/avatar.png</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="bullet">-</span> <span class="string">images/3x/avatar.png</span></span></pre></td></tr></table></figure>
+</li>
+<li><p>实现代码如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Image.asset(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      <span class="string">"images/avatar.png"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>在像素比例为2.0的屏幕上，将自动加载渲染 images/2x/avatar.png 图片。可以不提供1倍图，但是 <code>pubspec.yaml</code> 中的配置 <code>- images/avatar.png</code> 必须存在，此时在需要1倍图的设备是上会使用2倍图代替。</p>
+<h5 id="5-Image-memory-构造方法"><a href="#5-Image-memory-构造方法" class="headerlink" title="5. Image.memory() 构造方法"></a>5. Image.memory() 构造方法</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Image.memory(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//Uint8List类型必传参数，为图片的字节数组</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  Uint8List bytes, &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  Key key,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">double</span> scale = <span class="number">1.0</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.frameBuilder,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.semanticLabel,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.excludeFromSemantics = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.width,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.height,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.color,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.colorBlendMode,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.fit,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.alignment = Alignment.center,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.repeat = ImageRepeat.noRepeat,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.centerSlice,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.matchTextDirection = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.gaplessPlayback = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.filterQuality = FilterQuality.low,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheWidth,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">int</span> cacheHeight,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//以上未注释的参数与Image()构造方法含义相同</span></span></pre></td></tr></table></figure>
+
+<p>当通过网络或本地获取图片的字节数据进行图片渲染时，可以使用 <code>Image.memory()</code> 构造方法进行处理。如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'dart:typed_data'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'dart:convert'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  runApp(MyApp());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="meta">@override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  Widget build(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> MaterialApp(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">      home: Scaffold(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        appBar: AppBar(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">          title: Text(<span class="string">"Widget基础"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        body: studyWidget(context),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">      ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">String</span> imgString = <span class="string">"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"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">  Uint8List bytes = base64.decode(imgString);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    child: Image.memory(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">      bytes,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+
+
+<h4 id="二、Icon-Widget"><a href="#二、Icon-Widget" class="headerlink" title="二、Icon Widget"></a>二、Icon Widget</h4><p><code>Icon</code> 为一个图标 Widget ，是一个无状态组件，不可交互。Flutter 默认所有的 <code>Icon</code> Widget 都为正方形，如果使用其他形状可能会出错。 其构造函数如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Icon(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//IconData类型必传参数，为要显示的图标，可以为null，为null将显示指定大小的空白区域</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.icon, &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  Key key,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//double类型可选命名参数，绘制图标的大小，单位为像素</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.size,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//Color类型可选命名参数，绘制图标时使用的颜色，默认为黑色  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.color,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//String类型可选命名参数，图标的语义标签  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.semanticLabel,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//TextDirection类型可选命名参数，图标绘制的方向  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.textDirection,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr></table></figure>
+
+
+
+<h5 id="1-系统的-Icon"><a href="#1-系统的-Icon" class="headerlink" title="1. 系统的 Icon"></a>1. 系统的 Icon</h5><p>Flutter 为开发者提供了很多 Icon ，可以通过 <code>Icons.图标名称</code> 直接使用，方式如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    child: Icon(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">      Icons.ac_unit,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      color: Colors.blue,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      size: <span class="number">24.0</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>更多 Icon ，可以参考官方。 <a href="https://api.flutter.dev/flutter/material/Icons-class.html#constants" target="_blank" rel="noopener">https://api.flutter.dev/flutter/material/Icons-class.html#constants</a></p>
+<h5 id="2-自定义的-Icon"><a href="#2-自定义的-Icon" class="headerlink" title="2. 自定义的 Icon"></a>2. 自定义的 Icon</h5><p>在 <code>Icon</code> 的构造函数中，必传参数 <code>icon</code> 为 <code>IconData</code> 类型，其构造方法如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> IconData(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//int类型必传参数，图标字体中存储该图标的Unicode代码点</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.codePoint, &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//String类型可命名选参数，字体名称  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.fontFamily,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//String类型可选命名参数，包含字体的包的名称  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.fontPackage,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//bool类型可选命名参数，图标绘制方法是否与环境中的文本绘制方向相同  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.matchTextDirection = <span class="keyword">false</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
+
+<p>可以通过创建 <code>IconData</code> 的实例来自定义 <code>Icon</code> 。首先要准备素材，可以到阿里图标库下载，<a href="https://www.iconfont.cn/" target="_blank" rel="noopener">https://www.iconfont.cn/</a> 。这里随便下载一个为例。选择一个图标加入购物车，在购物车中选择下载代码。下载后内容如下图：</p>
+<p><img src="/content/f0eb3e6d/2020361109.jpg" alt="2020361109"></p>
+<p>在项目工程根目录新建 fonts 文件夹，并将 iconfont.ttf 文件加入到文件夹中，将文件重新命名为 my_shoes.ttf 。打开工程的 <code>pubspec.yaml</code> 配置文件，找到如下代码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># fonts:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#   - family: Schyler</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#     fonts:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#       - asset: fonts/Schyler-Regular.ttf</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#       - asset: fonts/Schyler-Italic.ttf</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#         style: italic</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#   - family: Trajan Pro</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#     fonts:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#       - asset: fonts/TrajanPro.ttf</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#       - asset: fonts/TrajanPro_Bold.ttf</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#         weight: 700</span></span></pre></td></tr></table></figure>
+
+<p>修改如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">fonts:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   <span class="bullet">-</span> <span class="attr">family:</span> <span class="string">MyCustomFont</span>  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">     <span class="attr">fonts:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">       <span class="bullet">-</span> <span class="attr">asset:</span> <span class="string">fonts/my_shoes.ttf</span></span></pre></td></tr></table></figure>
+
+<p>关于 family 对应的名字可以自定义，如果有确定的不会与其他混淆可以直接使用提供的，如果内有可以自己定义字体名字，这里我们自定义为 MyCustomFont 。</p>
+<p>然后打开下载的文件中的名字为 demo_index.html (使用浏览器打开即可)。如下图：</p>
+<p><img src="/content/f0eb3e6d/2020361135.jpg" alt="2020361135"></p>
+<p><code>&amp;#xe70c</code> ，<code>&amp;#x</code> 是字符引用，后面接的是十六进制数字，我们要获取的就是<code>&amp;#x</code> 后面的数字。</p>
+<p>实现代码如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Widget studyWidget(BuildContext context) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">const</span> IconData iData = <span class="keyword">const</span> IconData(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="number">0xe70c</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    fontFamily: <span class="string">"MyCustomFont"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> Container(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    width: <span class="number">400</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    height: <span class="number">600</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    color: Colors.yellow,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    child: Icon(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">      iData,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">      color: Colors.blue,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">      size: <span class="number">50.0</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    ),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  );</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>实现效果如下：</p>
+<p><img src="/content/f0eb3e6d/2020361139.jpg" alt="2020361139"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wchatq.png" alt="陌问.MW wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号，及时获取知识！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    陌问.MW
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.mwpush.com/content/f0eb3e6d.html" title="[Flutter]flutter基础之组件基础(三)">http://www.mwpush.com/content/f0eb3e6d.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+          
+            <a href="/tags/Dart/" rel="tag"># Dart</a>
+          
+            <a href="/tags/hybrid/" rel="tag"># hybrid</a>
+          
+            <a href="/tags/Native/" rel="tag"># Native</a>
+          
+            <a href="/tags/Widget/" rel="tag"># Widget</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/content/8e181e46.html" rel="next" title="[Flutter]flutter基础之组件基础(二)">
+                <i class="fa fa-chevron-left"></i> [Flutter]flutter基础之组件基础(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="陌问.MW" />
+            
+              <p class="site-author-name" itemprop="name">陌问.MW</p>
+              <p class="site-description motion-element" itemprop="description">技术分析，分享，记录，学习</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、Image-Widget"><span class="nav-number">1.</span> <span class="nav-text">一、Image Widget</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Image-构造方法"><span class="nav-number">1.1.</span> <span class="nav-text">1. Image() 构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Image-network-构造方法"><span class="nav-number">1.2.</span> <span class="nav-text">2. Image.network() 构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Image-file-构造方法"><span class="nav-number">1.3.</span> <span class="nav-text">3. Image.file() 构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Image-asset-构造方法"><span class="nav-number">1.4.</span> <span class="nav-text">4. Image.asset() 构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Image-memory-构造方法"><span class="nav-number">1.5.</span> <span class="nav-text">5. Image.memory() 构造方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、Icon-Widget"><span class="nav-number">2.</span> <span class="nav-text">二、Icon Widget</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-系统的-Icon"><span class="nav-number">2.1.</span> <span class="nav-text">1. 系统的 Icon</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-自定义的-Icon"><span class="nav-number">2.2.</span> <span class="nav-text">2. 自定义的 Icon</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陌问.MW</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
