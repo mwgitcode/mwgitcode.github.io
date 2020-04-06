@@ -158,9 +158,9 @@
         <tag>hybrid</tag>
         <tag>Native</tag>
         <tag>Widget</tag>
-        <tag>Chip</tag>
-        <tag>Flow</tag>
-        <tag>CircleAvatar</tag>
+        <tag>InputChip</tag>
+        <tag>ClipOval</tag>
+        <tag>Opacity</tag>
       </tags>
   </entry>
   <entry>
