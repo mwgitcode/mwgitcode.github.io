@@ -106,11 +106,11 @@
 ]]></content>
       <categories>
         <category>移动开发</category>
-        <category>IOS开发</category>
+        <category>iOS开发</category>
       </categories>
       <tags>
+        <tag>iOS</tag>
         <tag>Swift</tag>
-        <tag>ios</tag>
         <tag>Metal</tag>
         <tag>MTLDevice</tag>
         <tag>GPU</tag>
