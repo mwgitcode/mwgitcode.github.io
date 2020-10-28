@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ObjC,Objective-C,ios,线程锁,Lock," />
+  <meta name="keywords" content="ObjC,iOS,Objective-C,线程锁,Lock," />
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="一、概述在计算机科学中，锁是在执行多线程时用于强行限制资源访问的同步机制。主要是为了解决共享资源的安全问题。当不同的线程同时操作一块内存数据时，如果不加以限制，会发生数据错乱等异常问题。加锁，则每个线程在访问对应资源时，需要先获取锁信息，再根据信息决定是否可以访问。当一条线程访问特定资源时，使用锁会锁定该特定资源，此时其他线程无法访问该资源。当资源访问结束后，会恢复锁的状态，允许其他线程访问，这样">
-<meta name="keywords" content="ObjC,Objective-C,ios,线程锁,Lock">
+<meta name="keywords" content="ObjC,iOS,Objective-C,线程锁,Lock">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[IOS.OC]线程锁">
+<meta property="og:title" content="[iOS.OC]线程锁">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.mwpush.com&#x2F;content&#x2F;9ff26aaa.html">
 <meta property="og:site_name" content="MW技术栈">
 <meta property="og:description" content="一、概述在计算机科学中，锁是在执行多线程时用于强行限制资源访问的同步机制。主要是为了解决共享资源的安全问题。当不同的线程同时操作一块内存数据时，如果不加以限制，会发生数据错乱等异常问题。加锁，则每个线程在访问对应资源时，需要先获取锁信息，再根据信息决定是否可以访问。当一条线程访问特定资源时，使用锁会锁定该特定资源，此时其他线程无法访问该资源。当资源访问结束后，会恢复锁的状态，允许其他线程访问，这样">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-29T11:14:31.709Z">
+<meta property="og:updated_time" content="2020-10-28T03:46:00.802Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>[IOS.OC]线程锁 | MW技术栈</title>
+  <title>[iOS.OC]线程锁 | MW技术栈</title>
   
 
 
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[IOS.OC]线程锁</h1>
+          <h1 class="post-title" itemprop="name headline">[iOS.OC]线程锁</h1>
         
 
         <div class="post-meta">
@@ -359,8 +359,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/IOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS开发</span>
+                  <a href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
                   </a>
                 </span>
 
@@ -461,7 +461,7 @@
 
 <p><code>unlockWithCondition</code>方法为解锁并设置新的锁定条件。<code>lockWhenCondition</code>尝试获取锁，接收者的条件必须等于锁定操作成功之前的条件。此方法会阻塞线程的执行，直到可以获取锁为止。还有一些其他方法：</p>
 <p><code>lockBeforeDate</code> 尝试在指定日期之前获取锁，此方法将阻塞线程的执行，直到接收者获得锁定或达到限制为止。<br><code>lockWhenCondition:beforeDate</code> 尝试在指定的时间之前获取指定锁。接收者的条件必须等于锁定操作成功之前的条件。此方法将阻止线程的执行，直到可以获取锁或达到限制为止。<br><code>tryLock</code>尝试获取锁而不考虑接收者的状况，不阻塞线程。<br><code>tryLockWhenCondition</code> 根据指定条件尝试获取锁。作为其实现的一部分，此方法将调用<code>lockWhenCondition：beforeDate</code>。此方法立即返回。</p>
-<h5 id="9-dispatch-semaphore"><a href="#9-dispatch-semaphore" class="headerlink" title="9.dispatch_semaphore"></a>9.<code>dispatch_semaphore</code></h5><p>通过都信号计数的控制来控制并发数量，达到对资源的同步访问的目的，具体可以看 <a href="http://www.mwpush.com/content/d04bd655.html">[IOS.OC]GCD的使用精解(三)</a></p>
+<h5 id="9-dispatch-semaphore"><a href="#9-dispatch-semaphore" class="headerlink" title="9.dispatch_semaphore"></a>9.<code>dispatch_semaphore</code></h5><p>通过都信号计数的控制来控制并发数量，达到对资源的同步访问的目的，具体可以看 <a href="http://www.mwpush.com/content/d04bd655.html">[iOS.OC]GCD的使用精解(三)</a></p>
 <h5 id="10-NSDistributedLock分布锁"><a href="#10-NSDistributedLock分布锁" class="headerlink" title="10.NSDistributedLock分布锁"></a>10.<code>NSDistributedLock</code>分布锁</h5><p>在多个主机上的多个应用程序中，可以使用<code>NSDistributedLock</code>类来限制对某些共享资源(文件)的访问。锁实际上是使用文件系统项(文件或目录)来实现锁的。所有使用<code>NSDistributedLock</code>对象的应用程序都必须可以写锁。这就意味着把它放在一个文件系统上，所有运行该应用程序的计算机都可以访问它。</p>
 <p>上面也说过，<code>NSDistributedLock</code>是不遵循<code>NSLocking</code>协议的，所以没有锁方法。锁方法将阻塞线程的执行，并要求系统以预定的速度轮询锁定。当然这个决定权在开发者手中，可通过<code>tryLock</code>方法来决定是否轮询。<br>如果持有锁的进程在释放前挂掉，那么锁将一直得不到释放，可通过<code>breakLock</code>强行获取锁。</p>
 
@@ -492,7 +492,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.mwpush.com/content/9ff26aaa.html" title="[IOS.OC]线程锁">http://www.mwpush.com/content/9ff26aaa.html</a>
+    <a href="http://www.mwpush.com/content/9ff26aaa.html" title="[iOS.OC]线程锁">http://www.mwpush.com/content/9ff26aaa.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -509,9 +509,9 @@
           
             <a href="/tags/ObjC/" rel="tag"># ObjC</a>
           
-            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            <a href="/tags/ios/" rel="tag"># ios</a>
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
           
             <a href="/tags/%E7%BA%BF%E7%A8%8B%E9%94%81/" rel="tag"># 线程锁</a>
           
@@ -528,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/content/436b03b3.html" rel="next" title="[IOS.OC]IOS中的多线程">
-                <i class="fa fa-chevron-left"></i> [IOS.OC]IOS中的多线程
+              <a href="/content/436b03b3.html" rel="next" title="[iOS.OC]iOS中的多线程">
+                <i class="fa fa-chevron-left"></i> [iOS.OC]iOS中的多线程
               </a>
             
           </div>
@@ -538,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/content/bc12b792.html" rel="prev" title="[IOS.Swift]Swift基础数据类型(一)">
-                [IOS.Swift]Swift基础数据类型(一) <i class="fa fa-chevron-right"></i>
+              <a href="/content/c598aae1.html" rel="prev" title="[iOS.OC]RunLoop详解">
+                [iOS.OC]RunLoop详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -621,7 +621,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -632,7 +632,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -643,7 +643,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
